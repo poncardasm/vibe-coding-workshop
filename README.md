@@ -22,6 +22,7 @@ By the end of the workshop, each participant will have a working one-page websit
 ## Repository Structure
 
 - `docs/` contains workshop planning notes and outlines.
+- `docs/handout.html` is a one-page participant guide (OpenCode + OpenRouter setup). Open it in a browser or host it alongside the slides.
 - `slides/` contains Open Slide decks.
 - `themes/` contains optional shared Open Slide themes.
 - `assets/` can hold shared workshop assets.
@@ -41,12 +42,12 @@ The Open Slide dev server runs on `http://localhost:5173` or the next available 
 
 Useful scripts:
 
-| Command | Description |
-| --- | --- |
-| `npm run dev` | Start the Open Slide dev server with hot reload. |
-| `npm run build` | Build a static slide bundle to `dist/`. |
-| `npm run preview` | Preview the built slide bundle locally. |
-| `npm run sync:skills` | Sync Open Slide agent skills. |
+| Command               | Description                                      |
+| --------------------- | ------------------------------------------------ |
+| `npm run dev`         | Start the Open Slide dev server with hot reload. |
+| `npm run build`       | Build a static slide bundle to `dist/`.          |
+| `npm run preview`     | Preview the built slide bundle locally.          |
+| `npm run sync:skills` | Sync Open Slide agent skills.                    |
 
 ## Open Slide Notes
 
