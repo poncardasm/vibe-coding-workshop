@@ -401,6 +401,20 @@
     footer li { margin-bottom: 0.3rem; }
     footer li::marker { content: none; }
 
+    .footer-section {
+      margin-top: 1.35rem;
+    }
+
+    .footer-section > p:first-child {
+      margin-bottom: 0.4rem;
+    }
+
+    .footer-note {
+      font-size: 0.86rem;
+      margin: 0 0 0.5rem;
+      line-height: 1.45;
+    }
+
     .facilitator {
       margin-top: 1.75rem;
       padding-top: 1.5rem;
@@ -768,13 +782,31 @@ Fix only that issue in index.html. Show me the exact CSS you changed.</pre>
     </section>
 
     <footer>
-      <p><strong>Quick links</strong></p>
-      <ul>
-        <li><a href="https://opencode.ai/download">OpenCode download</a></li>
-        <li><a href="https://opencode.ai/docs">OpenCode docs</a></li>
-        <li><a href="https://openrouter.ai/settings/keys">OpenRouter API keys</a></li>
-        <li><a href="https://openrouter.ai/models">OpenRouter model list</a></li>
-      </ul>
+      <div class="footer-section">
+        <p><strong>Quick links</strong></p>
+        <ul>
+          <li><a href="https://opencode.ai/download">OpenCode download</a></li>
+          <li><a href="https://opencode.ai/docs">OpenCode docs</a></li>
+          <li><a href="https://openrouter.ai/settings/keys">OpenRouter API keys</a></li>
+          <li><a href="https://openrouter.ai/models">OpenRouter model list</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <p><strong>Free AI courses</strong></p>
+        <p class="footer-note">Keep learning after the workshop — free to join; create an account on each site.</p>
+        <ul>
+          <li>
+            <a href="https://anthropic.skilljar.com/" target="_blank" rel="noopener noreferrer">Anthropic Academy</a>
+            — Claude basics, Claude Code, AI fluency, MCP, and more
+          </li>
+          <li>
+            <a href="https://academy.openai.com/" target="_blank" rel="noopener noreferrer">OpenAI Academy</a>
+            — tutorials, live events, and community learning
+          </li>
+        </ul>
+      </div>
+
       <div class="facilitator">
         <p class="facilitator-name">Mchael Poncardas</p>
         <p>Workshop facilitator</p>
