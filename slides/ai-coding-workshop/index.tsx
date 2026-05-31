@@ -447,8 +447,7 @@ const Closing: Page = () => (
       ...fill,
       display: 'flex',
       flexDirection: 'column',
-      justifyContent: 'center',
-      padding: `0 ${pad}px`,
+      padding: pad,
       background: palette.ink,
       color: palette.cream,
     }}
@@ -468,7 +467,9 @@ const Closing: Page = () => (
         color: palette.cream,
       }}
     >
-      Ship something real. Keep iterating.
+      Ship something real.
+      <br />
+      Keep iterating.
     </h2>
     <p
       className="acw-rise acw-rise-d2"
@@ -488,7 +489,7 @@ const Closing: Page = () => (
         position: 'absolute',
         left: pad,
         bottom: 108,
-        paddingTop: 36,
+        paddingTop: 64,
         borderTop: '1px solid rgba(250, 249, 245, 0.15)',
         minWidth: 560,
       }}
