@@ -10,7 +10,7 @@ export const design: DesignSystem = {
   },
   fonts: {
     display: '"Poppins", Arial, system-ui, -apple-system, sans-serif',
-    body: '"Lora", Georgia, "Times New Roman", serif',
+    body: '"Akt", system-ui, -apple-system, sans-serif',
   },
   typeScale: {
     hero: 156,
@@ -47,7 +47,7 @@ const fill = {
 };
 
 const styles = `
-  @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Poppins:wght@400;500;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Akt:wght@100..900&family=Poppins:wght@400;500;600;700&display=swap');
   @keyframes acw-fadeUp {
     from { opacity: 0; transform: translateY(8px); }
     to   { opacity: 1; transform: translateY(0); }

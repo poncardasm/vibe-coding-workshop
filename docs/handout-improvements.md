@@ -59,11 +59,9 @@ Consider anchors or nav labels for:
 
 Slides emphasize: not magic → workflow → prompting → pick track. Section 6 is thinner than sections 1–5. Add a small card mirroring the slide bullets so the room and handout stay in sync.
 
-### 8. Track B framing for non-restaurants
+### 8. Track B framing for non-restaurants — done
 
-The restaurant example is concrete and works well. Add one line:
-
-> Not a restaurant? Keep the same steps — swap menu for services/products and hours for how customers reach you.
+Track B panel opens with a note for non-restaurant businesses (swap menu → services/products, hours → how customers reach you).
 
 ---
 
@@ -77,9 +75,9 @@ The handout is long (~900 lines). A slim sticky TOC or an “↑ Top” control 
 
 Example: **“Sections 1–3: about 15 minutes before we start.”** Sets expectations and reduces day-of panic.
 
-### 11. Typography alignment with slides (optional)
+### 11. Typography alignment with slides — done
 
-Workshop slides use Poppins + Lora; the handout uses Akt + DM Sans + Poppins. Aligning fonts would make printed/shared materials feel like one brand. Not required for function.
+Slides and handout both use **Poppins** (headings/UI) + **Akt** (body).
 
 ### 12. `meta description` and favicon
 
@@ -95,11 +93,11 @@ Images use relative paths (`assets/…`). Host so `handout.html` and `docs/asset
 
 ### 14. Print: expand accordions
 
-Print CSS already exposes `.track-panel`. Add a print-only note at the top of section 5: *“Expand both tracks below if printing.”* Some browsers still collapse `<details>`.
+Print CSS already exposes `.track-panel`. Add a print-only note at the top of section 5: _“Expand both tracks below if printing.”_ Some browsers still collapse `<details>`.
 
-### 15. Accordion affordance
+### 15. Accordion affordance — done
 
-`<details>` / `<summary>` is fine natively. Optional: visible “Click to expand” in the summary for users who don’t recognize the chevron.
+Track accordions show **Click to expand** / **Click to collapse** beside the chevron in each summary.
 
 ### 16. `prefers-reduced-motion`
 
@@ -124,7 +122,7 @@ Remind participants to note where `index.html` lives on disk and not to close Op
 
 ### 19. Credit reassurance
 
-Trial credit ($5 / 30 days) is mentioned twice — fine. Optional line: *“One full site build today is typically well within trial credit”* so people aren’t afraid to iterate.
+Trial credit ($5 / 30 days) is mentioned twice — fine. Optional line: _“One full site build today is typically well within trial credit”_ so people aren’t afraid to iterate.
 
 ---
 
@@ -167,9 +165,9 @@ If time is limited, do these first:
 
 ## Related files
 
-| File | Role |
-|------|------|
-| `docs/handout.html` | Participant follow-along |
-| `docs/outline.md` | Facilitator script and timing |
-| `slides/ai-coding-workshop/` | Presenter slides |
-| `docs/assets/` | Handout screenshots (must ship next to `handout.html`) |
+| File                         | Role                                                   |
+| ---------------------------- | ------------------------------------------------------ |
+| `docs/handout.html`          | Participant follow-along                               |
+| `docs/outline.md`            | Facilitator script and timing                          |
+| `slides/ai-coding-workshop/` | Presenter slides                                       |
+| `docs/assets/`               | Handout screenshots (must ship next to `handout.html`) |

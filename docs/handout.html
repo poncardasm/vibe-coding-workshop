@@ -6,7 +6,7 @@
   <title>From Idea to Website: AI Coding for Beginners</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Akt:wght@100..900&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Akt:wght@100..900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
       --bg: #faf9f5;
@@ -28,7 +28,7 @@
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: "Akt", "DM Sans", system-ui, sans-serif;
+      font-family: "Akt", system-ui, sans-serif;
       font-size: 1.05rem;
       line-height: 1.65;
       color: var(--text);
@@ -273,22 +273,50 @@
       display: none;
     }
 
-    .track-accordion summary::after {
+    .track-summary-aside {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.35rem;
+      flex-shrink: 0;
+      margin-left: auto;
+      padding-top: 0.1rem;
+    }
+
+    .track-expand-hint {
+      font-family: "Poppins", system-ui, sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--dim);
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+
+    .track-expand-hint .hint-open {
+      display: none;
+    }
+
+    .track-accordion[open] .track-expand-hint .hint-closed {
+      display: none;
+    }
+
+    .track-accordion[open] .track-expand-hint .hint-open {
+      display: inline;
+    }
+
+    .track-summary-aside::after {
       content: "";
       flex-shrink: 0;
       width: 0.55rem;
       height: 0.55rem;
-      margin-top: 0.45rem;
-      margin-left: auto;
       border-right: 2px solid var(--muted);
       border-bottom: 2px solid var(--muted);
       transform: rotate(45deg);
       transition: transform 0.2s ease;
     }
 
-    .track-accordion[open] summary::after {
+    .track-accordion[open] .track-summary-aside::after {
       transform: rotate(-135deg);
-      margin-top: 0.65rem;
     }
 
     .track-accordion summary:focus-visible {
@@ -460,7 +488,7 @@
       .btn-row, .copy-btn { display: none; }
       pre.prompt { padding-top: 1rem; }
       .track-accordion { border: 1px solid var(--border); }
-      .track-accordion summary::after { display: none; }
+      .track-summary-aside { display: none; }
       .track-accordion .track-panel { display: block !important; }
       a { color: var(--text); text-decoration: underline; }
       section { break-inside: avoid; }
@@ -656,6 +684,9 @@
             <p class="track-label">Track A - Personal portfolio</p>
             <p class="track-summary-hint">Best for students, freelancers, and career shifters showcasing your work.</p>
           </span>
+          <span class="track-summary-aside">
+            <span class="track-expand-hint"><span class="hint-closed">Click to expand</span><span class="hint-open">Click to collapse</span></span>
+          </span>
         </summary>
         <div class="track-panel">
 
@@ -713,8 +744,13 @@ Make the smallest change needed to fix it. Don't rewrite the whole page.</pre>
             <p class="track-label">Track B - Business landing page</p>
             <p class="track-summary-hint">Best for small business owners who want customers to find hours, menu, and how to visit or order.</p>
           </span>
+          <span class="track-summary-aside">
+            <span class="track-expand-hint"><span class="hint-closed">Click to expand</span><span class="hint-open">Click to collapse</span></span>
+          </span>
         </summary>
         <div class="track-panel">
+
+        <p class="note">Not a restaurant? Keep the same steps — swap menu for services/products and hours for how customers reach you.</p>
 
         <p class="prompt-step">Step 1 — First draft</p>
         <pre class="prompt">Create a one-page restaurant website in a single file: index.html.
@@ -786,6 +822,9 @@ Fix only that issue in index.html. Show me the exact CSS you changed.</pre>
           <span class="track-summary-text">
             <p class="track-label">Bonus prompts - Both tracks</p>
             <p class="track-summary-hint">Use anytime with either track.</p>
+          </span>
+          <span class="track-summary-aside">
+            <span class="track-expand-hint"><span class="hint-closed">Click to expand</span><span class="hint-open">Click to collapse</span></span>
           </span>
         </summary>
         <div class="track-panel">
