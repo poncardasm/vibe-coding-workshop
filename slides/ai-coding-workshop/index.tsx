@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import type { DesignSystem, Page, SlideMeta, SlideTransition } from '@open-slide/core';
 import { useSlidePageNumber } from '@open-slide/core';
+import alsinaUltrajada from '@assets/alsina-ultrajada.woff';
 
 export const design: DesignSystem = {
   palette: {
@@ -9,8 +10,8 @@ export const design: DesignSystem = {
     accent: '#d97757',
   },
   fonts: {
-    display: '"Poppins", Arial, system-ui, -apple-system, sans-serif',
-    body: '"Akt", system-ui, -apple-system, sans-serif',
+    display: '"Rubik", system-ui, -apple-system, sans-serif',
+    body: '"Rubik", system-ui, -apple-system, sans-serif',
   },
   typeScale: {
     hero: 156,
@@ -36,6 +37,8 @@ const palette = {
 
 const pad = 140;
 
+const headingFont = '"Alsina", Georgia, "Times New Roman", serif';
+
 const fill = {
   width: '100%',
   height: '100%',
@@ -47,7 +50,14 @@ const fill = {
 };
 
 const styles = `
-  @import url('https://fonts.googleapis.com/css2?family=Akt:wght@100..900&family=Poppins:wght@400;500;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+  @font-face {
+    font-family: 'Alsina';
+    src: url('${alsinaUltrajada}') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
   @keyframes acw-fadeUp {
     from { opacity: 0; transform: translateY(8px); }
     to   { opacity: 1; transform: translateY(0); }
@@ -139,7 +149,7 @@ const PageTitle = ({
   <h2
     className={className}
     style={{
-      fontFamily: 'var(--osd-font-display)',
+      fontFamily: headingFont,
       fontSize: size,
       fontWeight: 600,
       margin: 0,
@@ -207,7 +217,7 @@ const Cover: Page = () => (
     <h1
       className="acw-rise acw-rise-d1"
       style={{
-        fontFamily: 'var(--osd-font-display)',
+        fontFamily: headingFont,
         fontSize: 'var(--osd-size-hero)',
         fontWeight: 600,
         lineHeight: 1.02,
@@ -457,7 +467,7 @@ const Closing: Page = () => (
     <h2
       className="acw-rise acw-rise-d1"
       style={{
-        fontFamily: 'var(--osd-font-display)',
+        fontFamily: headingFont,
         fontSize: 104,
         fontWeight: 600,
         margin: 0,

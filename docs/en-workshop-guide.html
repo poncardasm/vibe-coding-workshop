@@ -10,8 +10,16 @@
   <link rel="alternate" hreflang="x-default" href="en-workshop-guide.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Akt:wght@100..900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet" />
   <style>
+    @font-face {
+      font-family: "Alsina";
+      src: url("../assets/alsina-ultrajada.woff") format("woff");
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
     :root {
       --bg: #faf9f5;
       --text: #141413;
@@ -25,6 +33,12 @@
       --blue: #6a9bcc;
       --radius: 10px;
       --max: 720px;
+      --font-ui: "Rubik", system-ui, sans-serif;
+      --font-heading: "Alsina", Georgia, "Times New Roman", serif;
+    }
+
+    h1, h2 {
+      font-family: var(--font-heading);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -32,7 +46,7 @@
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: "Akt", system-ui, sans-serif;
+      font-family: "Rubik", system-ui, sans-serif;
       font-size: 1.05rem;
       line-height: 1.65;
       color: var(--text);
@@ -53,7 +67,7 @@
     }
 
     .eyebrow {
-      font-family: "Poppins", system-ui, sans-serif;
+      font-family: var(--font-ui);
       font-size: 0.72rem;
       font-weight: 600;
       letter-spacing: 0.12em;
@@ -63,7 +77,6 @@
     }
 
     h1 {
-      font-family: "Poppins", system-ui, sans-serif;
       font-size: clamp(1.75rem, 5vw, 2.25rem);
       font-weight: 700;
       line-height: 1.15;
@@ -84,7 +97,7 @@
     }
 
     nav.toc a {
-      font-family: "Poppins", system-ui, sans-serif;
+      font-family: var(--font-ui);
       font-size: 0.8rem;
       font-weight: 500;
       text-decoration: none;
@@ -109,7 +122,7 @@
     }
 
     nav.lang a {
-      font-family: "Poppins", system-ui, sans-serif;
+      font-family: var(--font-ui);
       font-size: 0.75rem;
       font-weight: 500;
       text-decoration: none;
@@ -137,7 +150,6 @@
     }
 
     h2 {
-      font-family: "Poppins", system-ui, sans-serif;
       font-size: 1.2rem;
       font-weight: 600;
       margin-bottom: 0.85rem;
@@ -163,7 +175,7 @@
     }
 
     h3 {
-      font-family: "Poppins", system-ui, sans-serif;
+      font-family: var(--font-ui);
       font-size: 0.95rem;
       font-weight: 600;
       margin: 1.25rem 0 0.5rem;
@@ -201,7 +213,7 @@
     }
 
     .card-title {
-      font-family: "Poppins", system-ui, sans-serif;
+      font-family: var(--font-ui);
       font-size: 0.85rem;
       font-weight: 600;
       margin-bottom: 0.35rem;
@@ -215,7 +227,7 @@
     }
 
     .btn {
-      font-family: "Poppins", system-ui, sans-serif;
+      font-family: var(--font-ui);
       font-size: 0.88rem;
       font-weight: 600;
       text-decoration: none;
@@ -319,7 +331,7 @@
     }
 
     .track-expand-hint {
-      font-family: "Poppins", system-ui, sans-serif;
+      font-family: var(--font-ui);
       font-size: 0.72rem;
       font-weight: 500;
       color: var(--dim);
@@ -369,7 +381,7 @@
     }
 
     .track-label {
-      font-family: "Poppins", system-ui, sans-serif;
+      font-family: var(--font-ui);
       font-size: 0.78rem;
       font-weight: 600;
       letter-spacing: 0.06em;
@@ -395,7 +407,7 @@
     }
 
     .prompt-step {
-      font-family: "Poppins", system-ui, sans-serif;
+      font-family: var(--font-ui);
       font-size: 0.82rem;
       font-weight: 600;
       color: var(--muted);
@@ -419,7 +431,7 @@
       top: 0.55rem;
       right: 0.55rem;
       z-index: 1;
-      font-family: "Poppins", system-ui, sans-serif;
+      font-family: var(--font-ui);
       font-size: 0.75rem;
       font-weight: 600;
       line-height: 1;
@@ -485,7 +497,7 @@
     }
 
     .facilitator-name {
-      font-family: "Poppins", system-ui, sans-serif;
+      font-family: var(--font-ui);
       font-weight: 600;
       color: var(--text);
       margin-bottom: 0.35rem;
