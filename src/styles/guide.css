@@ -117,11 +117,24 @@
       border-color: rgba(217, 119, 87, 0.35);
     }
 
+    .lang-switcher {
+      margin-bottom: 1rem;
+    }
+
+    .lang-label {
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.45rem;
+    }
+
     nav.lang {
       display: flex;
       flex-wrap: wrap;
       gap: 0.4rem;
-      margin-bottom: 1rem;
     }
 
     nav.lang a {

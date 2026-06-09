@@ -1,10 +1,13 @@
 <div class="wrap">
     <header>
-      <nav class="lang" aria-label="Language">
-        <a href="/" hreflang="en" aria-current="page">English</a>
-        <a href="/fi/" hreflang="fi">Suomi</a>
-        <a href="/sv/" hreflang="sv">Svenska</a>
-      </nav>
+      <div class="lang-switcher">
+        <p class="lang-label" id="lang-label">Language</p>
+        <nav class="lang" aria-labelledby="lang-label">
+          <a href="/" hreflang="en" aria-current="page">English</a>
+          <a href="/fi/" hreflang="fi">Suomi</a>
+          <a href="/sv/" hreflang="sv">Svenska</a>
+        </nav>
+      </div>
       <p class="eyebrow">Follow-along guide</p>
       <h1>From Idea to Website:<br />AI Coding for Beginners</h1>
       <p class="lede">Set up OpenCode, Neuralwatt, GitHub, and Vercel before we start building. Bookmark this page for easy access.</p>
@@ -162,11 +165,24 @@
         <li>Verify your email address if GitHub asks you to confirm from your inbox</li>
       </ol>
 
+      <div class="screenshots">
+        <figure>
+          <img
+            src="/assets/github-signup.png"
+            alt="GitHub sign-up page with email, password, username, and country fields"
+            width="1024"
+            height="649"
+            loading="lazy"
+          />
+          <figcaption>GitHub sign-up form — enter your <strong>email</strong>, <strong>password</strong>, and <strong>username</strong>, then click <strong>Create account</strong></figcaption>
+        </figure>
+      </div>
+
       <div class="card highlight">
         <p class="card-title">Why we need GitHub today</p>
         <p style="margin:0">
-          Your finished <code>index.html</code> site will live in a GitHub <strong>repository</strong> (a project folder in the cloud).
-          That lets you save your work, open it on another computer, and connect it to Vercel for a live link.
+          Your finished project will live in a GitHub <strong>repository</strong> (a project folder in the cloud).
+          That lets you save your work, open it on another computer, and deploy it to Vercel.
         </p>
       </div>
 
@@ -196,6 +212,19 @@
         <li>Finish Vercel’s short onboarding (team name can be your name; the free plan is selected by default)</li>
         <li>You should land on the Vercel <strong>Dashboard</strong> — you’re ready; we’ll deploy your site together during the workshop</li>
       </ol>
+
+      <div class="screenshots">
+        <figure>
+          <img
+            src="/assets/vercel-signup.png"
+            alt="Vercel sign-up page with Continue with GitHub and other provider buttons"
+            width="1024"
+            height="649"
+            loading="lazy"
+          />
+          <figcaption>Vercel sign-up — click <strong>Continue with GitHub</strong> to register with the account you created in section 4</figcaption>
+        </figure>
+      </div>
 
       <div class="card highlight">
         <p class="card-title">What happens during the workshop</p>

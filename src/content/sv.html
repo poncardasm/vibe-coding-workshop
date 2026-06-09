@@ -1,20 +1,25 @@
 <div class="wrap">
     <header>
-      <nav class="lang" aria-label="Språk">
-        <a href="/" hreflang="en">English</a>
-        <a href="/fi/" hreflang="fi">Suomi</a>
-        <a href="/sv/" hreflang="sv" aria-current="page">Svenska</a>
-      </nav>
+      <div class="lang-switcher">
+        <p class="lang-label" id="lang-label">Språk</p>
+        <nav class="lang" aria-labelledby="lang-label">
+          <a href="/" hreflang="en">English</a>
+          <a href="/fi/" hreflang="fi">Suomi</a>
+          <a href="/sv/" hreflang="sv" aria-current="page">Svenska</a>
+        </nav>
+      </div>
       <p class="eyebrow">Följ med-guide</p>
       <h1>Från idé till webbplats: AI-kodning för nybörjare</h1>
-      <p class="lede">Installera OpenCode och Neuralwatt innan vi börjar bygga. Bokmärk den här sidan för enkel åtkomst.</p>
+      <p class="lede">Installera OpenCode, Neuralwatt, GitHub och Vercel innan vi börjar bygga. Bokmärk den här sidan för enkel åtkomst.</p>
       <nav class="toc" aria-label="På den här sidan">
         <a href="#opencode"><span class="num" aria-hidden="true">1</span> OpenCode</a>
         <a href="#neuralwatt"><span class="num" aria-hidden="true">2</span> Neuralwatt</a>
         <a href="#connect"><span class="num" aria-hidden="true">3</span> Koppla ihop dem</a>
-        <a href="#writing-prompts"><span class="num" aria-hidden="true">4</span> Skriva prompts</a>
-        <a href="#prompts"><span class="num" aria-hidden="true">5</span> Exempelprompts</a>
-        <a href="#during"><span class="num" aria-hidden="true">6</span> Under workshopen</a>
+        <a href="#github"><span class="num" aria-hidden="true">4</span> GitHub</a>
+        <a href="#vercel"><span class="num" aria-hidden="true">5</span> Vercel</a>
+        <a href="#writing-prompts"><span class="num" aria-hidden="true">6</span> Skriva prompts</a>
+        <a href="#prompts"><span class="num" aria-hidden="true">7</span> Exempelprompts</a>
+        <a href="#during"><span class="num" aria-hidden="true">8</span> Under workshopen</a>
       </nav>
     </header>
 
@@ -133,13 +138,109 @@
       </p>
 
       <h3 id="quick-test">Snabbtest</h3>
-      <p>När du är ansluten, kopiera den här prompten till OpenCode — gör detta innan spårpromptarna i avsnitt 5:</p>
+      <p>När du är ansluten, kopiera den här prompten till OpenCode — gör detta innan spårpromptarna i avsnitt 7:</p>
       <p class="prompt-step">Snabbtest — prova detta först</p>
       <pre class="prompt">Skapa en ensides HTML-fil som heter index.html med en rubrik som säger "Hej, min sida" och ett kort stycke om mig. Använd en ren, enkel stil.</pre>
     </section>
 
+    <section id="github">
+      <h2><span class="num" aria-hidden="true">4</span> Skapa ett GitHub-konto</h2>
+      <p>
+        <a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a> är där vi sparar webbplatsen du bygger idag.
+        Ett gratis konto räcker — under workshopen laddar vi upp ditt projekt dit så att du kan behålla det och dela det.
+      </p>
+
+      <div class="btn-row">
+        <a class="btn btn-primary" href="https://github.com/signup" target="_blank" rel="noopener noreferrer">Registrera dig på GitHub</a>
+        <a class="btn btn-secondary" href="https://github.com/login" target="_blank" rel="noopener noreferrer">Logga in</a>
+        <a class="btn btn-secondary" href="https://docs.github.com/en/get-started/signing-up-for-github" target="_blank" rel="noopener noreferrer">GitHub-registreringsguide</a>
+      </div>
+
+      <h3>Registrera dig</h3>
+      <ol>
+        <li>Gå till <a href="https://github.com/signup" target="_blank" rel="noopener noreferrer">github.com/signup</a></li>
+        <li>Ange din <strong>e-post</strong>, skapa ett <strong>lösenord</strong> och välj ett <strong>användarnamn</strong> (det blir en del av din offentliga profil-URL)</li>
+        <li>Lös verifieringspusslet eller ange koden som GitHub skickar till din e-post</li>
+        <li>Svara på de korta introduktionsfrågorna (valfria steg som att välja plan kan hoppas över — den <strong>gratis</strong> nivån räcker)</li>
+        <li>Verifiera din e-postadress om GitHub ber dig bekräfta från inkorgen</li>
+      </ol>
+
+      <div class="screenshots">
+        <figure>
+          <img
+            src="/assets/github-signup.png"
+            alt="GitHub-registreringssida med fält för e-post, lösenord, användarnamn och land"
+            width="1024"
+            height="649"
+            loading="lazy"
+          />
+          <figcaption>GitHub-registreringsformulär — ange <strong>e-post</strong>, <strong>lösenord</strong> och <strong>användarnamn</strong>, klicka sedan på <strong>Create account</strong></figcaption>
+        </figure>
+      </div>
+
+      <div class="card highlight">
+        <p class="card-title">Varför vi behöver GitHub idag</p>
+        <p style="margin:0">
+          Ditt färdiga projekt kommer att ligga i ett GitHub-<strong>repository</strong> (en projektmapp i molnet).
+          Då kan du spara ditt arbete, öppna det på en annan dator och distribuera det till Vercel.
+        </p>
+      </div>
+
+      <p class="note">
+        <strong>Har du redan ett konto?</strong> Logga in på <a href="https://github.com/login" target="_blank" rel="noopener noreferrer">github.com/login</a> och se till att du kan ditt användarnamn och lösenord (eller hur du loggar in med Google/Apple).
+      </p>
+    </section>
+
+    <section id="vercel">
+      <h2><span class="num" aria-hidden="true">5</span> Skapa ett Vercel-konto</h2>
+      <p>
+        <a href="https://vercel.com/" target="_blank" rel="noopener noreferrer">Vercel</a> publicerar din webbplats på internet och ger dig en delbar länk (t.ex. <code>din-webbplats.vercel.app</code>).
+        Den gratis <strong>Hobby</strong>-planen räcker för dagens ensideswebbplats.
+      </p>
+
+      <div class="btn-row">
+        <a class="btn btn-primary" href="https://vercel.com/signup" target="_blank" rel="noopener noreferrer">Registrera dig på Vercel</a>
+        <a class="btn btn-secondary" href="https://vercel.com/login" target="_blank" rel="noopener noreferrer">Logga in</a>
+        <a class="btn btn-secondary" href="https://vercel.com/docs" target="_blank" rel="noopener noreferrer">Vercel-dokumentation</a>
+      </div>
+
+      <h3>Registrera dig (rekommenderat: använd GitHub)</h3>
+      <ol>
+        <li>Gå till <a href="https://vercel.com/signup" target="_blank" rel="noopener noreferrer">vercel.com/signup</a></li>
+        <li>Klicka på <strong>Continue with GitHub</strong> — det är enklast eftersom du redan skapade ett GitHub-konto i avsnitt 4</li>
+        <li>Godkänn Vercel när GitHub frågar (Vercel behöver tillåtelse att läsa dina repos och distribuera från dem)</li>
+        <li>Slutför Vercels korta introduktion (teamnamnet kan vara ditt namn; gratisplanen är vald som standard)</li>
+        <li>Du bör hamna på Vercels <strong>Dashboard</strong> — du är redo; vi distribuerar din webbplats tillsammans under workshopen</li>
+      </ol>
+
+      <div class="screenshots">
+        <figure>
+          <img
+            src="/assets/vercel-signup.png"
+            alt="Vercels registreringssida med knappen Continue with GitHub och andra leverantörer"
+            width="1024"
+            height="649"
+            loading="lazy"
+          />
+          <figcaption>Vercel-registrering — klicka på <strong>Continue with GitHub</strong> och använd kontot du skapade i avsnitt 4</figcaption>
+        </figure>
+      </div>
+
+      <div class="card highlight">
+        <p class="card-title">Vad som händer under workshopen</p>
+        <p style="margin:0">
+          När du har byggt din webbplats med OpenCode lägger vi den på GitHub och importerar repot till Vercel.
+          Vercel bygger och hostar den — du får en live-URL att öppna på telefonen och dela med andra.
+        </p>
+      </div>
+
+      <p class="note warn">
+        <strong>Klistra inte in hemligheter.</strong> Din Neuralwatt API-nyckel stannar bara i OpenCode — committa aldrig API-nycklar till GitHub eller lägg dem i dina webbplatsfiler.
+      </p>
+    </section>
+
     <section id="writing-prompts">
-      <h2><span class="num" aria-hidden="true">4</span> Skriva prompts</h2>
+      <h2><span class="num" aria-hidden="true">6</span> Skriva prompts</h2>
       <p>
         AI:n fungerar bäst när du skriver som om du briefar en hjälpsam kollega: tydligt mål, tillräckligt med kontext och en begäran i taget.
       </p>
@@ -178,7 +279,7 @@
     </section>
 
     <section id="prompts">
-      <h2><span class="num" aria-hidden="true">5</span> Exempelprompts</h2>
+      <h2><span class="num" aria-hidden="true">7</span> Exempelprompts</h2>
       <p>
         Välj <strong>ett spår</strong> nedan. Kopiera varje prompt till OpenCode i ordning.
         Ersätt allt i <code>[hakparenteser]</code> med dina egna uppgifter innan du skickar.
@@ -347,7 +448,7 @@ Fixa bara det problemet i index.html. Visa mig exakt vilken CSS du ändrade.</pr
     </section>
 
     <section id="during">
-      <h2><span class="num" aria-hidden="true">6</span> Under workshopen</h2>
+      <h2><span class="num" aria-hidden="true">8</span> Under workshopen</h2>
 
       <div class="card">
         <p class="card-title">Så arbetar vi med AI</p>
@@ -385,6 +486,8 @@ Fixa bara det problemet i index.html. Visa mig exakt vilken CSS du ändrade.</pr
           <li><a href="https://opencode.ai/docs">OpenCode-dokumentation</a></li>
           <li><a href="https://portal.neuralwatt.com/auth/register">Neuralwatt — skapa konto</a></li>
           <li><a href="https://portal.neuralwatt.com/docs/integrations/opencode">Neuralwatt × OpenCode-installation</a></li>
+          <li><a href="https://github.com/signup">GitHub — registrera dig</a></li>
+          <li><a href="https://vercel.com/signup">Vercel — registrera dig</a></li>
         </ul>
       </div>
 

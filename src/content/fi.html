@@ -1,20 +1,25 @@
 <div class="wrap">
     <header>
-      <nav class="lang" aria-label="Kieli">
-        <a href="/" hreflang="en">English</a>
-        <a href="/fi/" hreflang="fi" aria-current="page">Suomi</a>
-        <a href="/sv/" hreflang="sv">Svenska</a>
-      </nav>
+      <div class="lang-switcher">
+        <p class="lang-label" id="lang-label">Kieli</p>
+        <nav class="lang" aria-labelledby="lang-label">
+          <a href="/" hreflang="en">English</a>
+          <a href="/fi/" hreflang="fi" aria-current="page">Suomi</a>
+          <a href="/sv/" hreflang="sv">Svenska</a>
+        </nav>
+      </div>
       <p class="eyebrow">Seuraa mukana -opas</p>
       <h1>Ideasta verkkosivuksi: Tekoälyavusteinen koodaus aloittelijoille</h1>
-      <p class="lede">Asenna OpenCode ja Neuralwatt ennen kuin aloitamme rakentamisen. Lisää tämä sivu kirjanmerkkeihin, jotta löydät sen helposti.</p>
+      <p class="lede">Asenna OpenCode, Neuralwatt, GitHub ja Vercel ennen kuin aloitamme rakentamisen. Lisää tämä sivu kirjanmerkkeihin, jotta löydät sen helposti.</p>
       <nav class="toc" aria-label="Tällä sivulla">
         <a href="#opencode"><span class="num" aria-hidden="true">1</span> OpenCode</a>
         <a href="#neuralwatt"><span class="num" aria-hidden="true">2</span> Neuralwatt</a>
         <a href="#connect"><span class="num" aria-hidden="true">3</span> Yhdistä ne</a>
-        <a href="#writing-prompts"><span class="num" aria-hidden="true">4</span> Kehotteiden kirjoittaminen</a>
-        <a href="#prompts"><span class="num" aria-hidden="true">5</span> Esimerkkikehotteet</a>
-        <a href="#during"><span class="num" aria-hidden="true">6</span> Työpajan aikana</a>
+        <a href="#github"><span class="num" aria-hidden="true">4</span> GitHub</a>
+        <a href="#vercel"><span class="num" aria-hidden="true">5</span> Vercel</a>
+        <a href="#writing-prompts"><span class="num" aria-hidden="true">6</span> Kehotteiden kirjoittaminen</a>
+        <a href="#prompts"><span class="num" aria-hidden="true">7</span> Esimerkkikehotteet</a>
+        <a href="#during"><span class="num" aria-hidden="true">8</span> Työpajan aikana</a>
       </nav>
     </header>
 
@@ -133,13 +138,109 @@
       </p>
 
       <h3 id="quick-test">Pikatesti</h3>
-      <p>Kun yhteys on valmis, kopioi tämä kehote OpenCodeen — tee tämä ennen osion 5 polkukehotteita:</p>
+      <p>Kun yhteys on valmis, kopioi tämä kehote OpenCodeen — tee tämä ennen osion 7 polkukehotteita:</p>
       <p class="prompt-step">Pikatesti — kokeile tätä ensin</p>
       <pre class="prompt">Luo yksisivuinen HTML-tiedosto nimeltä index.html, jossa on otsikko "Hei, sivuni" ja lyhyt kappale minusta. Käytä selkeää, yksinkertaista tyyliä.</pre>
     </section>
 
+    <section id="github">
+      <h2><span class="num" aria-hidden="true">4</span> Luo GitHub-tili</h2>
+      <p>
+        <a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a> on paikka, johon tallennamme tänään rakentamasi verkkosivun.
+        Ilmainen tili riittää — työpajan aikana siirrämme projektisi sinne, jotta voit säilyttää sen ja jakaa sen.
+      </p>
+
+      <div class="btn-row">
+        <a class="btn btn-primary" href="https://github.com/signup" target="_blank" rel="noopener noreferrer">Rekisteröidy GitHubiin</a>
+        <a class="btn btn-secondary" href="https://github.com/login" target="_blank" rel="noopener noreferrer">Kirjaudu sisään</a>
+        <a class="btn btn-secondary" href="https://docs.github.com/en/get-started/signing-up-for-github" target="_blank" rel="noopener noreferrer">GitHubin rekisteröitymisopas</a>
+      </div>
+
+      <h3>Rekisteröidy</h3>
+      <ol>
+        <li>Siirry osoitteeseen <a href="https://github.com/signup" target="_blank" rel="noopener noreferrer">github.com/signup</a></li>
+        <li>Syötä <strong>sähköpostisi</strong>, luo <strong>salasana</strong> ja valitse <strong>käyttäjänimi</strong> (tästä tulee osa julkista profiilisi osoitetta)</li>
+        <li>Ratkaise vahvistustehtävä tai syötä GitHubin sähköpostiisi lähettämä koodi</li>
+        <li>Vastaa lyhyisiin aloituskysymyksiin (valinnaiset vaiheet, kuten paketin valinta, voi ohittaa — <strong>ilmainen</strong> taso riittää)</li>
+        <li>Vahvista sähköpostiosoitteesi, jos GitHub pyytää vahvistamaan sen postilaatikostasi</li>
+      </ol>
+
+      <div class="screenshots">
+        <figure>
+          <img
+            src="/assets/github-signup.png"
+            alt="GitHubin rekisteröitymissivu sähköposti-, salasana-, käyttäjänimi- ja maakentillä"
+            width="1024"
+            height="649"
+            loading="lazy"
+          />
+          <figcaption>GitHubin rekisteröintilomake — syötä <strong>sähköposti</strong>, <strong>salasana</strong> ja <strong>käyttäjänimi</strong>, sitten napsauta <strong>Create account</strong></figcaption>
+        </figure>
+      </div>
+
+      <div class="card highlight">
+        <p class="card-title">Miksi tarvitsemme GitHubia tänään</p>
+        <p style="margin:0">
+          Valmis projektisi sijaitsee GitHub-<strong>repositoriossa</strong> (projektikansio pilvessä).
+          Näin voit tallentaa työsi, avata sen toisella tietokoneella ja julkaista sen Verceliin.
+        </p>
+      </div>
+
+      <p class="note">
+        <strong>Onko sinulla jo tili?</strong> Kirjaudu osoitteessa <a href="https://github.com/login" target="_blank" rel="noopener noreferrer">github.com/login</a> ja varmista, että muistat käyttäjänimesi ja salasanasi (tai miten kirjaudut Google-/Apple-tilillä).
+      </p>
+    </section>
+
+    <section id="vercel">
+      <h2><span class="num" aria-hidden="true">5</span> Luo Vercel-tili</h2>
+      <p>
+        <a href="https://vercel.com/" target="_blank" rel="noopener noreferrer">Vercel</a> julkaisee sivustosi internetiin ja antaa jaettavan linkin (esim. <code>sinun-sivusi.vercel.app</code>).
+        Ilmainen <strong>Hobby</strong>-paketti riittää tämän päivän yksisivuiselle sivustolle.
+      </p>
+
+      <div class="btn-row">
+        <a class="btn btn-primary" href="https://vercel.com/signup" target="_blank" rel="noopener noreferrer">Rekisteröidy Verceliin</a>
+        <a class="btn btn-secondary" href="https://vercel.com/login" target="_blank" rel="noopener noreferrer">Kirjaudu sisään</a>
+        <a class="btn btn-secondary" href="https://vercel.com/docs" target="_blank" rel="noopener noreferrer">Vercel-dokumentaatio</a>
+      </div>
+
+      <h3>Rekisteröidy (suositus: käytä GitHubia)</h3>
+      <ol>
+        <li>Siirry osoitteeseen <a href="https://vercel.com/signup" target="_blank" rel="noopener noreferrer">vercel.com/signup</a></li>
+        <li>Napsauta <strong>Continue with GitHub</strong> — tämä on helpoin tapa, koska loit GitHub-tilin jo osiossa 4</li>
+        <li>Valtuuta Vercel, kun GitHub kysyy (Vercel tarvitsee luvan lukea repojasi ja julkaista niistä)</li>
+        <li>Viimeistele Vercelin lyhyt aloitus (tiimin nimi voi olla nimesi; ilmainen paketti on oletuksena valittuna)</li>
+        <li>Pitäisi avautua Vercelin <strong>Dashboard</strong> — olet valmis; julkaisemme sivustosi yhdessä työpajan aikana</li>
+      </ol>
+
+      <div class="screenshots">
+        <figure>
+          <img
+            src="/assets/vercel-signup.png"
+            alt="Vercelin rekisteröitymissivu Continue with GitHub -painikkeella ja muilla palveluntarjoajilla"
+            width="1024"
+            height="649"
+            loading="lazy"
+          />
+          <figcaption>Vercelin rekisteröinti — napsauta <strong>Continue with GitHub</strong> ja käytä osiossa 4 luomaasi tiliä</figcaption>
+        </figure>
+      </div>
+
+      <div class="card highlight">
+        <p class="card-title">Mitä tapahtuu työpajan aikana</p>
+        <p style="margin:0">
+          Kun olet rakentanut sivustosi OpenCodella, laitamme sen GitHubiin ja tuomme repon Verceliin.
+          Vercel rakentaa ja isännöi sen — saat live-URL-osoitteen, jonka voit avata puhelimellasi ja jakaa muille.
+        </p>
+      </div>
+
+      <p class="note warn">
+        <strong>Älä liitä salaisuuksia.</strong> Neuralwatt API-avain pysyy vain OpenCodessa — älä koskaan tallenna API-avaimia GitHubiin tai verkkosivutiedostoihisi.
+      </p>
+    </section>
+
     <section id="writing-prompts">
-      <h2><span class="num" aria-hidden="true">4</span> Kehotteiden kirjoittaminen</h2>
+      <h2><span class="num" aria-hidden="true">6</span> Kehotteiden kirjoittaminen</h2>
       <p>
         Tekoäly toimii parhaiten, kun kirjoitat kuin ohjeistaisit avuliaan tiimikaverin: selkeä tavoite, riittävästi kontekstia ja yksi pyyntö kerrallaan.
       </p>
@@ -178,7 +279,7 @@
     </section>
 
     <section id="prompts">
-      <h2><span class="num" aria-hidden="true">5</span> Esimerkkikehotteet</h2>
+      <h2><span class="num" aria-hidden="true">7</span> Esimerkkikehotteet</h2>
       <p>
         Valitse <strong>yksi polku</strong> alta. Kopioi jokainen kehote OpenCodeen järjestyksessä.
         Korvaa kaikki <code>[hakasulkeissa]</code> olevat tiedot omillasi ennen lähettämistä.
@@ -347,7 +448,7 @@ Korjaa vain tämä ongelma index.html:ssä. Näytä tarkalleen mitä CSS:ää mu
     </section>
 
     <section id="during">
-      <h2><span class="num" aria-hidden="true">6</span> Työpajan aikana</h2>
+      <h2><span class="num" aria-hidden="true">8</span> Työpajan aikana</h2>
 
       <div class="card">
         <p class="card-title">Näin työskentelemme tekoälyn kanssa</p>
@@ -385,6 +486,8 @@ Korjaa vain tämä ongelma index.html:ssä. Näytä tarkalleen mitä CSS:ää mu
           <li><a href="https://opencode.ai/docs">OpenCode-dokumentaatio</a></li>
           <li><a href="https://portal.neuralwatt.com/auth/register">Neuralwatt — luo tili</a></li>
           <li><a href="https://portal.neuralwatt.com/docs/integrations/opencode">Neuralwatt × OpenCode -asennus</a></li>
+          <li><a href="https://github.com/signup">GitHub — rekisteröidy</a></li>
+          <li><a href="https://vercel.com/signup">Vercel — rekisteröidy</a></li>
         </ul>
       </div>
 
