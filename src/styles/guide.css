@@ -548,6 +548,32 @@
       text-align: center;
     }
 
+    html[dir="rtl"] ul,
+    html[dir="rtl"] ol {
+      margin: 0 1.25rem 1rem 0;
+    }
+
+    html[dir="rtl"] .note {
+      border-left: none;
+      border-right: 3px solid var(--blue);
+      padding-left: 0;
+      padding-right: 0.85rem;
+    }
+
+    html[dir="rtl"] .warn {
+      border-right-color: var(--accent);
+    }
+
+    html[dir="rtl"] .track-summary-aside {
+      margin-left: 0;
+      margin-right: auto;
+    }
+
+    html[dir="rtl"] .copy-btn {
+      right: auto;
+      left: 0.55rem;
+    }
+
     @media print {
       body { font-size: 10pt; }
       .wrap { padding: 0; max-width: none; }

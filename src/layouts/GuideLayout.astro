@@ -2,7 +2,7 @@
 import '../styles/guide.css';
 
 interface Props {
-  lang: 'en' | 'fi' | 'sv';
+  lang: 'en' | 'fi' | 'sv' | 'ar';
   title: string;
 }
 
@@ -12,11 +12,23 @@ const alternates = [
   { lang: 'en', href: '/' },
   { lang: 'fi', href: '/fi/' },
   { lang: 'sv', href: '/sv/' },
+  { lang: 'ar', href: '/ar/' },
 ] as const;
+
+const dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+const copyLabels = {
+  en: { copy: 'Copy', copied: 'Copied!', failed: 'Failed', ariaCopy: 'Copy prompt to clipboard', ariaCopied: 'Copied to clipboard' },
+  fi: { copy: 'Kopioi', copied: 'Kopioitu!', failed: 'Epäonnistui', ariaCopy: 'Kopioi kehote leikepöydälle', ariaCopied: 'Kopioitu leikepöydälle' },
+  sv: { copy: 'Kopiera', copied: 'Kopierat!', failed: 'Misslyckades', ariaCopy: 'Kopiera prompt till urklipp', ariaCopied: 'Kopierat till urklipp' },
+  ar: { copy: 'نسخ', copied: 'تم النسخ!', failed: 'فشل', ariaCopy: 'نسخ الموجّه إلى الحافظة', ariaCopied: 'تم النسخ إلى الحافظة' },
+} as const;
+
+const labels = copyLabels[lang];
 ---
 
 <!doctype html>
-<html lang={lang}>
+<html lang={lang} dir={dir}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -42,8 +54,8 @@ const alternates = [
           var btn = document.createElement('button');
           btn.type = 'button';
           btn.className = 'copy-btn';
-          btn.textContent = 'Copy';
-          btn.setAttribute('aria-label', 'Copy prompt to clipboard');
+          btn.textContent = {JSON.stringify(labels.copy)};
+          btn.setAttribute('aria-label', {JSON.stringify(labels.ariaCopy)});
           pre.parentNode.insertBefore(block, pre);
           block.append(btn, pre);
         });
@@ -58,13 +70,13 @@ const alternates = [
           var text = pre.textContent.trim();
 
           function showCopied() {
-            btn.textContent = 'Copied!';
+            btn.textContent = {JSON.stringify(labels.copied)};
             btn.classList.add('copied');
-            btn.setAttribute('aria-label', 'Copied to clipboard');
+            btn.setAttribute('aria-label', {JSON.stringify(labels.ariaCopied)});
             window.setTimeout(function () {
-              btn.textContent = 'Copy';
+              btn.textContent = {JSON.stringify(labels.copy)};
               btn.classList.remove('copied');
-              btn.setAttribute('aria-label', 'Copy prompt to clipboard');
+              btn.setAttribute('aria-label', {JSON.stringify(labels.ariaCopy)});
             }, 2000);
           }
 
@@ -86,9 +98,9 @@ const alternates = [
               document.execCommand('copy');
               showCopied();
             } catch (err) {
-              btn.textContent = 'Failed';
+              btn.textContent = {JSON.stringify(labels.failed)};
               window.setTimeout(function () {
-                btn.textContent = 'Copy';
+                btn.textContent = {JSON.stringify(labels.copy)};
               }, 2000);
             }
             document.body.removeChild(ta);

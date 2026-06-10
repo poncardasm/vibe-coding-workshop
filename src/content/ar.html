@@ -1,0 +1,520 @@
+<div class="wrap">
+    <header>
+      <div class="lang-switcher">
+        <p class="lang-label" id="lang-label">اللغة</p>
+        <nav class="lang" aria-labelledby="lang-label">
+          <a href="/" hreflang="en">English</a>
+          <a href="/fi/" hreflang="fi">Suomi</a>
+          <a href="/sv/" hreflang="sv">Svenska</a>
+          <a href="/ar/" hreflang="ar" aria-current="page">العربية</a>
+        </nav>
+      </div>
+      <p class="eyebrow">دليل المتابعة</p>
+      <h1>من الفكرة إلى موقع ويب:<br />البرمجة بالذكاء الاصطناعي للمبتدئين</h1>
+      <p class="lede">أعدّ OpenCode وNeuralwatt وGitHub وVercel قبل أن نبدأ البناء. أضف هذه الصفحة إلى المفضّلة للوصول السريع.</p>
+      <nav class="toc" aria-label="في هذه الصفحة">
+        <a href="#opencode"><span class="num" aria-hidden="true">1</span> OpenCode</a>
+        <a href="#neuralwatt"><span class="num" aria-hidden="true">2</span> Neuralwatt</a>
+        <a href="#connect"><span class="num" aria-hidden="true">3</span> ربطهما</a>
+        <a href="#github"><span class="num" aria-hidden="true">4</span> GitHub</a>
+        <a href="#vercel"><span class="num" aria-hidden="true">5</span> Vercel</a>
+        <a href="#writing-prompts"><span class="num" aria-hidden="true">6</span> كتابة الموجّهات</a>
+        <a href="#prompts"><span class="num" aria-hidden="true">7</span> أمثلة على الموجّهات</a>
+        <a href="#during"><span class="num" aria-hidden="true">8</span> أثناء الورشة</a>
+      </nav>
+    </header>
+
+    <section id="opencode">
+      <h2><span class="num" aria-hidden="true">1</span> تثبيت OpenCode (سطح المكتب)</h2>
+      <p>
+        نستخدم <strong>OpenCode</strong> — وكيل برمجة بالذكاء الاصطناعي مفتوح المصدر يعمل في الطرفية وتطبيق سطح المكتب وإضافات بيئات التطوير.
+        لهذه الورشة، ثبّت <strong>تطبيق سطح المكتب</strong> (إصدار تجريبي).
+      </p>
+
+      <div class="btn-row">
+        <a class="btn btn-primary" href="https://opencode.ai/download" target="_blank" rel="noopener noreferrer">تنزيل OpenCode Desktop</a>
+        <a class="btn btn-secondary" href="https://opencode.ai/" target="_blank" rel="noopener noreferrer">حول OpenCode</a>
+        <a class="btn btn-secondary" href="https://opencode.ai/docs" target="_blank" rel="noopener noreferrer">التوثيق</a>
+      </div>
+
+      <h3>macOS</h3>
+      <ol>
+        <li>افتح <a href="https://opencode.ai/download" target="_blank" rel="noopener noreferrer">opencode.ai/download</a></li>
+        <li>نزّل الإصدار المناسب لمعالجك (<strong>Apple Silicon</strong> أو <strong>Intel</strong>)</li>
+        <li>افتح المثبّت واسحب OpenCode إلى مجلد التطبيقات</li>
+        <li>عند أول تشغيل، اسمح للتطبيق إذا طلب macOS ذلك</li>
+      </ol>
+
+      <h3>Windows</h3>
+      <ol>
+        <li>من <a href="https://opencode.ai/download" target="_blank" rel="noopener noreferrer">صفحة التنزيل</a>، احصل على <strong>Windows (x64)</strong></li>
+        <li>شغّل المثبّت وأكمل الإعداد</li>
+        <li>شغّل OpenCode من قائمة ابدأ</li>
+      </ol>
+
+      <h3>Linux</h3>
+      <ol>
+        <li>نزّل <strong>.deb</strong> أو <strong>.rpm</strong> من <a href="https://opencode.ai/download" target="_blank" rel="noopener noreferrer">صفحة التنزيل</a></li>
+        <li>ثبّته بمدير الحزم لديك، ثم افتح OpenCode</li>
+      </ol>
+
+      <p class="note">اختياري: يتوفر OpenCode أيضاً كتطبيق طرفية (<code>curl -fsSL https://opencode.ai/install | bash</code>). تطبيق سطح المكتب يكفي لليوم.</p>
+    </section>
+
+    <section id="neuralwatt">
+      <h2><span class="num" aria-hidden="true">2</span> الحصول على مفتاح Neuralwatt API</h2>
+      <p>
+        <a href="https://portal.neuralwatt.com/" target="_blank" rel="noopener noreferrer">Neuralwatt Cloud</a> يوفّر واجهة برمجة تطبيقات متوافقة مع OpenAI لنماذج البرمجة.
+        التسجيل مجاني — الحسابات الجديدة تحصل على <strong>رصيد تجريبي بقيمة 5 دولارات</strong>، صالح لمدة <strong>30 يوماً</strong>.
+      </p>
+
+      <div class="btn-row">
+        <a class="btn btn-primary" href="https://portal.neuralwatt.com/auth/register" target="_blank" rel="noopener noreferrer">إنشاء حساب مجاني</a>
+        <a class="btn btn-secondary" href="https://portal.neuralwatt.com/" target="_blank" rel="noopener noreferrer">بوابة Neuralwatt</a>
+        <a class="btn btn-secondary" href="https://portal.neuralwatt.com/docs/integrations/opencode" target="_blank" rel="noopener noreferrer">توثيق تكامل OpenCode</a>
+      </div>
+
+      <h3>إنشاء مفتاح API</h3>
+      <ol>
+        <li>اذهب إلى <a href="https://portal.neuralwatt.com/auth/register" target="_blank" rel="noopener noreferrer">portal.neuralwatt.com/auth/register</a> وأنشئ حسابك</li>
+        <li>سجّل الدخول إلى البوابة وافتح <strong>Dashboard → API Keys</strong></li>
+        <li>انقر <strong>Create Key</strong>، وسمّه (مثلاً <code>workshop</code>)</li>
+        <li>انسخ المفتاح واحفظه في مكان آمن — لن ترى المفتاح كاملاً مرة أخرى</li>
+      </ol>
+
+      <div class="card highlight">
+        <p class="card-title">الرصيد التجريبي للورشة</p>
+        <p style="margin:0">
+          <strong>رصيدك التجريبي البالغ 5 دولارات</strong> يستمر <strong>30 يوماً</strong> من تاريخ التسجيل — يكفي لتمارين اليوم والممارسة اللاحقة.
+          يستخدم Neuralwatt تسعيراً يعتمد على الطاقة؛ راجع استخدامك في لوحة تحكم البوابة إذا أردت معرفة ما تبقّى.
+        </p>
+      </div>
+
+      <p class="note warn">
+        <strong>أبقِ مفتاحك سرياً.</strong> لا تلصقه في الدردشة أو الشرائح أو GitHub. عامله ككلمة مرور.
+      </p>
+    </section>
+
+    <section id="connect">
+      <h2><span class="num" aria-hidden="true">3</span> ربط OpenCode بـ Neuralwatt</h2>
+      <p>بعد تثبيت OpenCode والحصول على مفتاح Neuralwatt API، اربطهما في تطبيق سطح المكتب — لا حاجة لملفات إعداد أو متغيرات بيئة.</p>
+
+      <h3>في OpenCode Desktop</h3>
+      <ol>
+        <li>افتح OpenCode وانقر أيقونة <strong>الإعدادات</strong> (الترس) في الشريط الجانبي</li>
+        <li>تحت <strong>Server</strong>، انقر <strong>Providers</strong></li>
+        <li>ابحث عن <strong>Neuralwatt</strong> وانقر <strong>+</strong> بجانبه</li>
+        <li>الصق مفتاح API وانقر <strong>Continue</strong></li>
+        <li>انقر <strong>اسم النموذج</strong> أسفل مربع الدردشة (بجانب <strong>Build</strong>)، وابحث تحت <strong>Neuralwatt</strong>، واختر <strong>Kimi K2.6</strong> — هذا النموذج الذي سنستخدمه في ورشة اليوم</li>
+      </ol>
+
+      <p class="note">استخدم <strong>Kimi K2.6</strong> لجميع التمارين اليوم حتى يتبع الجميع نفس الإعداد. يمكنك تجربة نماذج Neuralwatt الأخرى لاحقاً من منتقي النماذج.</p>
+
+      <div class="screenshots">
+        <figure>
+          <img
+            src="/assets/opencode-connect-provider-neuralwatt.png"
+            alt="مربع حوار Connect provider في OpenCode مع تمييز Neuralwatt في نتائج البحث"
+            width="681"
+            height="367"
+            loading="lazy"
+          />
+          <figcaption>ابحث عن Neuralwatt وانقر <strong>+</strong> لإضافة المزوّد</figcaption>
+        </figure>
+        <figure>
+          <img
+            src="/assets/opencode-connect-neuralwatt-api-key.png"
+            alt="مربع حوار Connect Neuralwatt مع حقل مفتاح API وزر Continue"
+            width="681"
+            height="389"
+            loading="lazy"
+          />
+          <figcaption>الصق مفتاح Neuralwatt API وانقر <strong>Continue</strong></figcaption>
+        </figure>
+      </div>
+
+      <p class="note">
+        المزيد من التفاصيل: <a href="https://portal.neuralwatt.com/docs/integrations/opencode" target="_blank" rel="noopener noreferrer">دليل Neuralwatt × OpenCode</a>
+        و<a href="https://opencode.ai/docs/providers" target="_blank" rel="noopener noreferrer">توثيق مزوّدي OpenCode</a>.
+      </p>
+
+      <h3 id="quick-test">اختبار سريع</h3>
+      <p>بعد الربط، انسخ هذا الموجّه إلى OpenCode — افعل ذلك قبل موجّهات المسارات في القسم 7:</p>
+      <p class="prompt-step">اختبار سريع — جرّب هذا أولاً</p>
+      <pre class="prompt">أنشئ ملف HTML بصفحة واحدة اسمه index.html يحتوي على عنوان يقول "مرحباً، موقعي" وفقرة قصيرة عني. استخدم أسلوباً نظيفاً وبسيطاً.</pre>
+    </section>
+
+    <section id="github">
+      <h2><span class="num" aria-hidden="true">4</span> إنشاء حساب GitHub</h2>
+      <p>
+        <a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a> هو المكان الذي سنخزّن فيه الموقع الذي تبنيه اليوم.
+        حساب مجاني يكفي — سنرفع مشروعك هناك أثناء الورشة حتى تحتفظ به وتشاركه.
+      </p>
+
+      <div class="btn-row">
+        <a class="btn btn-primary" href="https://github.com/signup" target="_blank" rel="noopener noreferrer">التسجيل في GitHub</a>
+        <a class="btn btn-secondary" href="https://github.com/login" target="_blank" rel="noopener noreferrer">تسجيل الدخول</a>
+        <a class="btn btn-secondary" href="https://docs.github.com/en/get-started/signing-up-for-github" target="_blank" rel="noopener noreferrer">دليل التسجيل في GitHub</a>
+      </div>
+
+      <h3>التسجيل</h3>
+      <ol>
+        <li>اذهب إلى <a href="https://github.com/signup" target="_blank" rel="noopener noreferrer">github.com/signup</a></li>
+        <li>أدخل <strong>بريدك الإلكتروني</strong>، وأنشئ <strong>كلمة مرور</strong>، واختر <strong>اسم مستخدم</strong> (يصبح جزءاً من رابط ملفك العام)</li>
+        <li>أكمل لغز التحقق أو الرمز الذي يرسله GitHub إلى بريدك</li>
+        <li>أجب على أسئلة الإعداد القصيرة (يمكنك تخطي الخطوات الاختيارية مثل اختيار الخطة — <strong>المجاني</strong> يكفي)</li>
+        <li>تحقق من بريدك الإلكتروني إذا طلب GitHub التأكيد من صندوق الوارد</li>
+      </ol>
+
+      <div class="screenshots">
+        <figure>
+          <img
+            src="/assets/github-signup.png"
+            alt="صفحة التسجيل في GitHub مع حقول البريد الإلكتروني وكلمة المرور واسم المستخدم والبلد"
+            width="1024"
+            height="649"
+            loading="lazy"
+          />
+          <figcaption>نموذج التسجيل في GitHub — أدخل <strong>بريدك الإلكتروني</strong> و<strong>كلمة المرور</strong> و<strong>اسم المستخدم</strong>، ثم انقر <strong>Create account</strong></figcaption>
+        </figure>
+      </div>
+
+      <div class="card highlight">
+        <p class="card-title">لماذا نحتاج GitHub اليوم</p>
+        <p style="margin:0">
+          مشروعك النهائي سيعيش في <strong>مستودع</strong> GitHub (مجلد مشروع في السحابة).
+          هذا يتيح لك حفظ عملك وفتحه على جهاز آخر ونشره على Vercel.
+        </p>
+      </div>
+
+      <p class="note">
+        <strong>لديك حساب بالفعل؟</strong> سجّل الدخول على <a href="https://github.com/login" target="_blank" rel="noopener noreferrer">github.com/login</a> وتأكد أنك تعرف اسم المستخدم وكلمة المرور (أو طريقة الدخول عبر Google/Apple).
+      </p>
+    </section>
+
+    <section id="vercel">
+      <h2><span class="num" aria-hidden="true">5</span> إنشاء حساب Vercel</h2>
+      <p>
+        <a href="https://vercel.com/" target="_blank" rel="noopener noreferrer">Vercel</a> ينشر موقعك على الإنترنت ويعطيك رابطاً قابلاً للمشاركة (مثلاً <code>your-site.vercel.app</code>).
+        الخطة المجانية <strong>Hobby</strong> تكفي لموقع اليوم ذي الصفحة الواحدة.
+      </p>
+
+      <div class="btn-row">
+        <a class="btn btn-primary" href="https://vercel.com/signup" target="_blank" rel="noopener noreferrer">التسجيل في Vercel</a>
+        <a class="btn btn-secondary" href="https://vercel.com/login" target="_blank" rel="noopener noreferrer">تسجيل الدخول</a>
+        <a class="btn btn-secondary" href="https://vercel.com/docs" target="_blank" rel="noopener noreferrer">توثيق Vercel</a>
+      </div>
+
+      <h3>التسجيل (موصى به: استخدم GitHub)</h3>
+      <ol>
+        <li>اذهب إلى <a href="https://vercel.com/signup" target="_blank" rel="noopener noreferrer">vercel.com/signup</a></li>
+        <li>انقر <strong>Continue with GitHub</strong> — هذا أسهل مسار لأنك أنشأت حساب GitHub في القسم 4</li>
+        <li>اسمح لـ Vercel عندما يطلب GitHub ذلك (يحتاج Vercel إذناً لقراءة مستودعاتك والنشر منها)</li>
+        <li>أكمل إعداد Vercel القصير (اسم الفريق يمكن أن يكون اسمك؛ الخطة المجانية محددة افتراضياً)</li>
+        <li>يجب أن تصل إلى <strong>لوحة تحكم</strong> Vercel — أنت جاهز؛ سننشر موقعك معاً أثناء الورشة</li>
+      </ol>
+
+      <div class="screenshots">
+        <figure>
+          <img
+            src="/assets/vercel-signup.png"
+            alt="صفحة التسجيل في Vercel مع أزرار Continue with GitHub ومزوّدين آخرين"
+            width="1024"
+            height="649"
+            loading="lazy"
+          />
+          <figcaption>التسجيل في Vercel — انقر <strong>Continue with GitHub</strong> للتسجيل بالحساب الذي أنشأته في القسم 4</figcaption>
+        </figure>
+      </div>
+
+      <div class="card highlight">
+        <p class="card-title">ما يحدث أثناء الورشة</p>
+        <p style="margin:0">
+          بعد بناء موقعك بـ OpenCode، سنضعه على GitHub ونستورد ذلك المستودع إلى Vercel.
+          سيبني Vercel الموقع ويستضيفه — ستحصل على رابط مباشر لفتحه على هاتفك ومشاركته مع الآخرين.
+        </p>
+      </div>
+
+      <p class="note warn">
+        <strong>لا تلصق الأسرار.</strong> مفتاح Neuralwatt API يبقى في OpenCode فقط — لا ترفع مفاتيح API إلى GitHub ولا تضفها إلى ملفات موقعك.
+      </p>
+    </section>
+
+    <section id="writing-prompts">
+      <h2><span class="num" aria-hidden="true">6</span> كتابة الموجّهات</h2>
+      <p>
+        يعمل الذكاء الاصطناعي بأفضل حال عندما تكتب كأنك تشرح لزميل مساعد: هدف واضح، سياق كافٍ، وطلب واحد في كل مرة.
+      </p>
+
+      <div class="card highlight">
+        <p class="card-title">ما الذي يجعل الموجّه جيداً</p>
+        <ul>
+          <li><strong>قل ما تريد</strong> — مثلاً «موقع معرض أعمال بصفحة واحدة في <code>index.html</code>» أو «موقع مطعم مع قائمة وساعات العمل».</li>
+          <li><strong>حدّد القيود</strong> — «استخدم HTML وCSS فقط، بدون أطر عمل» أو «ملف واحد فقط».</li>
+          <li><strong>أعطِ تفاصيلك الحقيقية</strong> — استبدل <code>[الأقواس]</code> باسمك وعناصر القائمة والألوان والنصوص.</li>
+          <li><strong>اطلب خطوات صغيرة</strong> — مسودة أولاً، ثم المحتوى، ثم التصميم، ثم إصلاحات الجوال.</li>
+          <li><strong>شارك ما تراه</strong> — إذا حدث خطأ، الصق رسالة الخطأ أو صف ما يبدو خاطئاً على شاشتك.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <p class="card-title">عبارات يمكنك إعادة استخدامها</p>
+        <ul>
+          <li>«اسألني أسئلة قبل أن تكتب أي كود.»</li>
+          <li>«أعطني خطة أولاً، ثم انتظر موافقتي.»</li>
+          <li>«أجرِ أصغر تغيير مطلوب — لا تعيد كتابة الصفحة كاملة.»</li>
+          <li>«اشرح ما غيّرته بعبارات بسيطة.»</li>
+          <li>«هذا هو الخطأ. حدّد السبب قبل الإصلاح.»</li>
+        </ul>
+      </div>
+
+      <p class="note">
+        <strong>ضعيف:</strong> «حسّن موقعي.»<br />
+        <strong>قوي:</strong> «حسّن قسم البطل في <code>index.html</code>: عنوان أكبر، مسافات أكثر، أبقِ نصي الحالي، مناسب للجوال.»
+      </p>
+
+      <p class="note">
+        <strong>نصيحة:</strong> للميزات الأكبر، انتقل إلى <strong>وضع التخطيط</strong> (مفتاح Tab)، راجع الخطة، ثم عد إلى وضع Build وقل «تابع». أنت تبقى مسيطراً — اقرأ الإجابة، اختبر في المتصفح، ثم أرسل الموجّه التالي.
+      </p>
+    </section>
+
+    <section id="prompts">
+      <h2><span class="num" aria-hidden="true">7</span> أمثلة على الموجّهات</h2>
+      <p>
+        اختر <strong>مساراً واحداً</strong> أدناه. انسخ كل موجّه إلى OpenCode بالترتيب.
+        استبدل أي شيء بين <code>[أقواس]</code> بتفاصيلك الخاصة قبل الإرسال.
+      </p>
+
+      <div class="tracks-accordion">
+      <details class="track-accordion" name="prompt-tracks">
+        <summary>
+          <span class="track-summary-text">
+            <p class="track-label">المسار أ — معرض أعمال شخصي</p>
+            <p class="track-summary-hint">الأفضل للطلاب والمستقلين ومن يغيّرون مسارهم المهني لعرض أعمالهم.</p>
+          </span>
+          <span class="track-summary-aside">
+            <span class="track-expand-hint"><span class="hint-closed">انقر للتوسيع</span><span class="hint-open">انقر للطي</span></span>
+          </span>
+        </summary>
+        <div class="track-panel">
+
+        <p class="prompt-step">الخطوة 1 — المسودة الأولى</p>
+        <pre class="prompt">أنشئ موقع معرض أعمال بصفحة واحدة في ملف واحد: index.html.
+
+استخدم HTML وCSS فقط (بدون أطر عمل). أضف هذه الأقسام:
+- قسم بطل باسمي [اسمك]، وشعار قصير [مثلاً "مطوّر ويب طموح"]، وصورة شخصية ودية كعنصر نائب
+- عني (3–4 جمل باستخدام هذه المعلومات: [الصق سيرة قصيرة])
+- المهارات (6–8 مهارات كوسوم أو قائمة بسيطة: [مثلاً التواصل، خدمة العملاء، Canva])
+- المشاريع (2–3 بطاقات مشروع بعنوان ووصف بجملة واحدة ورابط "عرض" كعنصر نائب)
+- التواصل (البريد [your@email.com] وروابط [LinkedIn / GitHub / اختياري])
+
+الأسلوب: نظيف وعصري، مساحات بيضاء كثيرة، خطوط سهلة القراءة، مناسب للجوال. لوحة ألوان هادئة بلون تمييز واحد.</pre>
+
+        <p class="prompt-step">الخطوة 2 — اجعله خاصاً بك</p>
+        <pre class="prompt">حدّث index.html بمحتواي الحقيقي:
+- الاسم: [اسمك]
+- الشعار: [شعارك]
+- عني: [فقرة سيرتك]
+- المهارات: [اذكر مهاراتك]
+- المشاريع: [عنوان المشروع 1 + وصفه]، [عنوان المشروع 2 + وصفه]
+- البريد: [your@email.com]
+
+أبقِ نفس التخطيط. حسّن الطباعة بحيث تبرز العناوين ويسهل قراءة النص.</pre>
+
+        <p class="prompt-step">الخطوة 3 — صقل التصميم</p>
+        <pre class="prompt">حسّن التصميم البصري لـ index.html دون تغيير نصي:
+- أضف تأثيرات hover خفيفة على الأزرار وبطاقات المشاريع
+- استخدم نظام مسافات متسق (padding/margins)
+- أضف شريط تنقل بسيطاً في الأعلى يربط بكل قسم (عني، المهارات، المشاريع، التواصل)
+- اجعل قسم البطل مريحاً وليس مزدحماً
+
+أخبرني بما غيّرته بلغة بسيطة.</pre>
+
+        <p class="prompt-step">الخطوة 4 — فحص الجوال</p>
+        <pre class="prompt">اجعل index.html يبدو رائعاً على الهواتف:
+- رتّب الأقسام عمودياً مع padding مريح
+- تأكد أن النص 16px على الأقل على الجوال
+- اجعل أهداف اللمس (الروابط والأزرار) سهلة الضغط
+- تأكد أن لا شيء يتجاوز العرض أفقياً
+
+اشرح أي CSS أضفته للجوال.</pre>
+
+        <p class="prompt-step">الخطوة 5 — إصلاح وتكرار (في أي وقت)</p>
+        <pre class="prompt">قسم [اسم القسم] لا يبدو صحيحاً على شاشتي. [صف ما تراه، مثلاً "النص صغير جداً" أو "البطاقات تتداخل"].
+
+أجرِ أصغر تغيير مطلوب لإصلاحه. لا تعيد كتابة الصفحة كاملة.</pre>
+        </div>
+      </details>
+
+      <details class="track-accordion" name="prompt-tracks">
+        <summary>
+          <span class="track-summary-text">
+            <p class="track-label">المسار ب — صفحة هبوط لعمل تجاري</p>
+            <p class="track-summary-hint">الأفضل لأصحاب الأعمال الصغيرة الذين يريدون أن يجد العملاء الساعات والقائمة وكيفية الزيارة أو الطلب.</p>
+          </span>
+          <span class="track-summary-aside">
+            <span class="track-expand-hint"><span class="hint-closed">انقر للتوسيع</span><span class="hint-open">انقر للطي</span></span>
+          </span>
+        </summary>
+        <div class="track-panel">
+
+        <p class="note">لست مطعماً؟ أبقِ نفس الخطوات — استبدل القائمة بالخدمات/المنتجات والساعات بطريقة وصول العملاء إليك.</p>
+
+        <p class="prompt-step">الخطوة 1 — المسودة الأولى</p>
+        <pre class="prompt">أنشئ موقع مطعم بصفحة واحدة في ملف واحد: index.html.
+
+استخدم HTML وCSS فقط (بدون أطر عمل). تفاصيل المطعم:
+- الاسم: [اسم المطعم]
+- الشعار: [مثلاً "معكرونة طازجة وبيتزا على الحطب في وسط المدينة"]
+- المطبخ: [مثلاً إيطالي، فلبيني، مقهى]
+- العنوان: [الشارع، المدينة]
+- الهاتف: [رقم الهاتف]
+- الساعات: [مثلاً الإثنين–السبت 11ص–9م، الأحد 12م–8م]
+
+أضف هذه الأقسام:
+1. بطل باسم المطعم والشعار وزرين: "عرض القائمة" و"اتصال / حجز"
+2. عن المطعم (2–3 جمل دافئة عن المطعم)
+3. أبرز القائمة (4–6 أطباق شائعة بأوصاف قصيرة وأسعار بـ [العملة])
+4. الساعات والموقع (العنوان، الساعات، عنصر نائب لخريطة أو رابط "الاتجاهات" إلى Google Maps)
+5. التواصل ووسائل التواصل (الهاتف، البريد اختياري، عناصر نائبة لإنستغرام/فيسبوك)
+
+الأسلوب: شهي وموثوق — صور طعام جيدة كعناصر نائبة، طباعة واضحة، يعمل على الجوال.</pre>
+
+        <p class="prompt-step">الخطوة 2 — القائمة والتفاصيل الحقيقية</p>
+        <pre class="prompt">حدّث index.html بمعلوماتنا الفعلية:
+
+المطعم: [اسم المطعم]
+عن المطعم: [2–3 جمل عن قصتك أو الشيف أو التخصص]
+
+عناصر القائمة (استخدمها كما هي):
+1. [الطبق] — [السعر] — [وصف بسطر واحد]
+2. [الطبق] — [السعر] — [الوصف]
+3. [الطبق] — [السعر] — [الوصف]
+4. [الطبق] — [السعر] — [الوصف]
+5. [الطبق] — [السعر] — [الوصف]
+6. [الطبق] — [السعر] — [الوصف]
+
+الساعات: [ساعاتك]
+العنوان: [العنوان الكامل]
+الهاتف: [الهاتف]
+ملاحظة الحجز: [مثلاً "نرحب بالزوار بدون حجز" أو "احجز بالهاتف"]
+
+أبقِ صفحة واحدة. اجعل الأسعار سهلة المسح.</pre>
+
+        <p class="prompt-step">الخطوة 3 — ساعد العملاء على اتخاذ إجراء</p>
+        <pre class="prompt">حسّن index.html حتى يعرف العملاء ما يفعلونه بعد ذلك:
+- "عرض القائمة" يتمرّر بسلاسة إلى قسم القائمة
+- "اتصال / حجز" يستخدم tel:[الهاتف] حتى يضغط مستخدمو الجوال للاتصال
+- أضف تنقلاً علوياً أو ثابتاً: القائمة، الساعات، الموقع، التواصل
+- أضف سطراً قصيراً عن [التوصيل / الاستلام / تناول الطعام في المكان إن وُجد]
+
+لا تغيّر نص القائمة. ركّز على الوضوح ودعوات الإجراء.</pre>
+
+        <p class="prompt-step">الخطوة 4 — مظهر احترافي</p>
+        <pre class="prompt">اجعل موقع المطعم يبدو أكثر تميزاً ومحلية:
+- اختر لوحة ألوان تناسب [نوع المطبخ] (دافئة للمخبز، خضراء منعشة للصحي، إلخ)
+- استخدم صور عناصر نائبة عالية الجودة للبطل و2–3 أطباق (عبر روابط عناصر نائبة يكفي)
+- أضف تذييلاً بسيطاً بحقوق النشر والعنوان وتكرار الساعات
+
+أبقِ كل المحتوى في ملف index.html واحد.</pre>
+
+        <p class="prompt-step">الخطوة 5 — إصلاح وتكرار (في أي وقت)</p>
+        <pre class="prompt">على الجوال، [صف المشكلة — مثلاً "أسعار القائمة تلتف بشكل سيئ" أو "زر الاتصال صعب الضغط"].
+
+أصلح هذه المشكلة فقط في index.html. أرني CSS الذي غيّرته بالضبط.</pre>
+        </div>
+      </details>
+
+      <details class="track-accordion" name="prompt-tracks">
+        <summary>
+          <span class="track-summary-text">
+            <p class="track-label">موجّهات إضافية — كلا المسارين</p>
+            <p class="track-summary-hint">استخدمها في أي وقت مع أي مسار.</p>
+          </span>
+          <span class="track-summary-aside">
+            <span class="track-expand-hint"><span class="hint-closed">انقر للتوسيع</span><span class="hint-open">انقر للطي</span></span>
+          </span>
+        </summary>
+        <div class="track-panel">
+        <p class="prompt-step">إضافة صورة</p>
+        <pre class="prompt">أضف صورة إلى [اسم القسم]. سأستخدم رابط الصورة هذا: [الصق الرابط] أو عنصراً نائباً. أبقِها متجاوبة وأضف نص alt لإمكانية الوصول.</pre>
+        <p class="prompt-step">شرح الكود</p>
+        <pre class="prompt">اشرح index.html بعبارات بسيطة لمبتدئ. ماذا يفعل كل قسم رئيسي؟ ماذا أعدّل إذا أردت تغيير رقم هاتفي أو سعر في القائمة؟</pre>
+        <p class="prompt-step">تغيير صغير آمن</p>
+        <pre class="prompt">غيّر لون التمييز فقط إلى [اسم اللون أو hex] وأسلوب خط العنوان الرئيسي. لا تغيّر التخطيط ولا تعيد كتابة الأقسام.</pre>
+        </div>
+      </details>
+      </div>
+    </section>
+
+    <section id="during">
+      <h2><span class="num" aria-hidden="true">8</span> أثناء الورشة</h2>
+
+      <div class="card">
+        <p class="card-title">كيف سنعمل مع الذكاء الاصطناعي</p>
+        <ol>
+          <li>صف الهدف بوضوح (ماذا يجب أن تفعل الصفحة)</li>
+          <li>راجع ما يقترحه الذكاء الاصطناعي قبل قبول تغييرات كبيرة</li>
+          <li>شغّل أو افتح الموقع في المتصفح كثيراً</li>
+          <li>إذا حدث خطأ، الصق رسالة الخطأ مرة أخرى للذكاء الاصطناعي</li>
+          <li>كرّر بخطوات صغيرة — أنت تبقى مسيطراً</li>
+        </ol>
+      </div>
+
+      <h3>أوامر OpenCode المفيدة</h3>
+      <ul>
+        <li><strong>Settings → Providers</strong> — أضف أو غيّر مزوّد الذكاء الاصطناعي (مثلاً Neuralwatt)</li>
+        <li><strong>منتقي النموذج</strong> (أسفل مربع الدردشة) — يجب أن يظهر <strong>Kimi K2.6</strong> تحت Neuralwatt لليوم</li>
+        <li><kbd>/init</kbd> — ساعد OpenCode على فهم مشروعك (شغّله مرة واحدة لكل مجلد)</li>
+        <li><kbd>/undo</kbd> — التراجع عن آخر تغيير</li>
+      </ul>
+
+      <h3>إذا حدث خطأ ما</h3>
+      <ul>
+        <li><strong>أخطاء المصادقة</strong> — افتح <strong>Settings → Providers → Neuralwatt</strong> وأعد لصق مفتاح API</li>
+        <li><strong>نفاد الرصيد (Neuralwatt)</strong> — راجع رصيدك في لوحة تحكم البوابة؛ الرصيد التجريبي يستمر 30 يوماً</li>
+        <li><strong>النموذج غير موجود</strong> — انقر اسم النموذج أسفل مربع الدردشة، وابحث عن <strong>Kimi K2.6</strong> تحت Neuralwatt، واختره من القائمة (لا تكتب معرّفات النماذج يدوياً)</li>
+        <li>اسأل الميسّر — نحن هنا للمساعدة</li>
+      </ul>
+    </section>
+
+    <footer>
+      <div class="footer-section">
+        <p><strong>روابط سريعة</strong></p>
+        <ul>
+          <li><a href="https://opencode.ai/download">تنزيل OpenCode</a></li>
+          <li><a href="https://opencode.ai/docs">توثيق OpenCode</a></li>
+          <li><a href="https://portal.neuralwatt.com/auth/register">Neuralwatt — إنشاء حساب</a></li>
+          <li><a href="https://portal.neuralwatt.com/docs/integrations/opencode">إعداد Neuralwatt × OpenCode</a></li>
+          <li><a href="https://github.com/signup">GitHub — التسجيل</a></li>
+          <li><a href="https://vercel.com/signup">Vercel — التسجيل</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <p><strong>دورات ذكاء اصطناعي مجانية</strong></p>
+        <p class="footer-note">تابع التعلم بعد الورشة — مجاني للانضمام؛ أنشئ حساباً في كل موقع.</p>
+        <ul>
+          <li>
+            <a href="https://anthropic.skilljar.com/" target="_blank" rel="noopener noreferrer">Anthropic Academy</a>
+            — أساسيات Claude وClaude Code وطلاقة الذكاء الاصطناعي وMCP والمزيد
+          </li>
+          <li>
+            <a href="https://academy.openai.com/" target="_blank" rel="noopener noreferrer">OpenAI Academy</a>
+            — دروس وأحداث مباشرة وتعلم مجتمعي
+          </li>
+        </ul>
+      </div>
+
+      <div class="facilitator">
+        <p class="facilitator-name">Mchael Poncardas</p>
+        <p>ميسّر الورشة</p>
+        <ul>
+          <li>البريد: <a href="mailto:m@poncardas.com">m@poncardas.com</a></li>
+          <li>الموقع: <a href="https://www.poncardas.com" target="_blank" rel="noopener noreferrer">poncardas.com</a></li>
+          <li>LinkedIn: <a href="https://linkedin.com/in/poncardas" target="_blank" rel="noopener noreferrer">linkedin.com/in/poncardas</a></li>
+        </ul>
+      </div>
+      <p style="margin-top:1rem">ورشة البرمجة بالذكاء الاصطناعي · لا يلزم خبرة برمجية سابقة</p>
+    </footer>
+  </div>
