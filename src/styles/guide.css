@@ -644,12 +644,11 @@
     }
 
     footer ul {
-      list-style: none;
-      margin: 0.5rem 0 0;
+      list-style: disc;
+      margin: 0.5rem 0 0 1.25rem;
     }
 
     footer li { margin-bottom: 0.3rem; }
-    footer li::marker { content: none; }
 
     .footer-section {
       margin-top: 1.35rem;

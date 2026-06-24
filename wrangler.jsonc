@@ -2,6 +2,8 @@
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "vibe-coding",
   "compatibility_date": "2026-06-24",
+  "workers_dev": true,
+  "preview_urls": false,
   "assets": {
     "directory": "./dist"
   }
