@@ -1,5 +1,6 @@
 ---
 import "../styles/guide.css";
+import "photoswipe/style.css";
 
 interface Props {
   lang: "en" | "fi" | "sv" | "ar";
@@ -220,6 +221,11 @@ const labels = copyLabels[lang];
           });
         }
       })();
+    </script>
+    <script>
+      import { initPhotoSwipeGalleries } from "../scripts/photoswipe-gallery";
+
+      initPhotoSwipeGalleries();
     </script>
   </body>
 </html>

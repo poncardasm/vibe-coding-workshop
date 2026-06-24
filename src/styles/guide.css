@@ -641,6 +641,17 @@
       margin: 0;
     }
 
+    .screenshots a {
+      display: block;
+      cursor: pointer;
+      border-radius: var(--radius);
+    }
+
+    .screenshots a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+
     .screenshots img {
       width: 100%;
       height: auto;
@@ -661,6 +672,20 @@
       color: var(--muted);
       margin-top: 0.5rem;
       text-align: center;
+    }
+
+    .pswp__img {
+      cursor: pointer !important;
+    }
+
+    @media (min-width: 640px) {
+      .screenshots {
+        margin-inline-start: 1rem;
+      }
+
+      .screenshots figcaption {
+        text-align: start;
+      }
     }
 
     .progress-bar {
