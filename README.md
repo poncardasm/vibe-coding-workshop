@@ -48,6 +48,21 @@ The dev server starts at `http://localhost:4321` by default.
 | `npm run build`   | Build a static site to `dist/` |
 | `npm run preview` | Preview the production build   |
 
+## Deploy to Cloudflare
+
+This site is **static HTML** (`output: 'static'`). Build with `npm run build`, then upload `dist/`.
+
+**Workers Builds (Git connected):**
+
+| Setting        | Value                 |
+| -------------- | --------------------- |
+| Build command  | `npm run build`       |
+| Deploy command | `npx wrangler deploy` |
+
+The repo includes `wrangler.jsonc` with an `[assets]` directory pointing at `dist` — no Worker script and no `@astrojs/cloudflare` adapter. Do **not** let Wrangler auto-run `astro add cloudflare`; that is only for server-rendered Astro apps.
+
+Alternatively, use **Cloudflare Pages** with build command `npm run build` and output directory `dist`, and leave the deploy command empty.
+
 ## Repository Structure
 
 - `src/` — Astro pages, layouts, styles, and guide content
