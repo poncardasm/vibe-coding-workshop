@@ -1,4 +1,4 @@
-# From Idea to Website: AI Coding for Beginners
+# From Idea to Website: Vibe Coding for Beginners
 
 ## Description
 

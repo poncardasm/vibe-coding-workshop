@@ -18,10 +18,10 @@ const alternates = [
 const dir = lang === 'ar' ? 'rtl' : 'ltr';
 
 const copyLabels = {
-  en: { copy: 'Copy', copied: 'Copied!', failed: 'Failed', ariaCopy: 'Copy prompt to clipboard', ariaCopied: 'Copied to clipboard' },
-  fi: { copy: 'Kopioi', copied: 'Kopioitu!', failed: 'Epäonnistui', ariaCopy: 'Kopioi kehote leikepöydälle', ariaCopied: 'Kopioitu leikepöydälle' },
-  sv: { copy: 'Kopiera', copied: 'Kopierat!', failed: 'Misslyckades', ariaCopy: 'Kopiera prompt till urklipp', ariaCopied: 'Kopierat till urklipp' },
-  ar: { copy: 'نسخ', copied: 'تم النسخ!', failed: 'فشل', ariaCopy: 'نسخ الموجّه إلى الحافظة', ariaCopied: 'تم النسخ إلى الحافظة' },
+  en: { copy: 'Copy', copied: 'Copied!', failed: 'Failed', ariaCopy: 'Copy prompt to clipboard', ariaCopied: 'Copied to clipboard', skip: 'Skip to content', toTop: 'Back to top' },
+  fi: { copy: 'Kopioi', copied: 'Kopioitu!', failed: 'Epäonnistui', ariaCopy: 'Kopioi kehote leikepöydälle', ariaCopied: 'Kopioitu leikepöydälle', skip: 'Siirry sisältöön', toTop: 'Takaisin ylös' },
+  sv: { copy: 'Kopiera', copied: 'Kopierat!', failed: 'Misslyckades', ariaCopy: 'Kopiera prompt till urklipp', ariaCopied: 'Kopierat till urklipp', skip: 'Hoppa till innehållet', toTop: 'Tillbaka till toppen' },
+  ar: { copy: 'نسخ', copied: 'تم النسخ!', failed: 'فشل', ariaCopy: 'نسخ الموجّه إلى الحافظة', ariaCopied: 'تم النسخ إلى الحافظة', skip: 'تخطَّ إلى المحتوى', toTop: 'العودة إلى الأعلى' },
 } as const;
 
 const labels = copyLabels[lang];
@@ -45,17 +45,35 @@ const labels = copyLabels[lang];
     />
   </head>
   <body>
+    <div class="progress-bar" aria-hidden="true"></div>
+    <a class="skip-link" href="#main-content">{labels.skip}</a>
     <slot />
-    <script is:inline>
+    <button class="to-top" type="button" aria-label={labels.toTop}>
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M12 5l7 7-1.4 1.4L13 8.8V19h-2V8.8L6.4 13.4 5 12z" fill="currentColor" />
+      </svg>
+    </button>
+    <script is:inline define:vars={{ labels }}>
       (function () {
+        var firstSection = document.querySelector('section');
+        if (firstSection) {
+          if (!firstSection.id) firstSection.id = 'main-content';
+          var skipLink = document.querySelector('.skip-link');
+          if (skipLink) skipLink.setAttribute('href', '#' + firstSection.id);
+        }
+
         document.querySelectorAll('pre.prompt').forEach(function (pre) {
           var block = document.createElement('div');
           block.className = 'prompt-block';
           var btn = document.createElement('button');
           btn.type = 'button';
           btn.className = 'copy-btn';
-          btn.textContent = {JSON.stringify(labels.copy)};
-          btn.setAttribute('aria-label', {JSON.stringify(labels.ariaCopy)});
+          btn.setAttribute('aria-label', labels.ariaCopy);
+          btn.innerHTML =
+            '<svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' +
+            '<rect x="8" y="8" width="14" height="14" rx="2" ry="2"/>' +
+            '<path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>' +
+            '</svg><span class="copy-label">' + labels.copy + '</span>';
           pre.parentNode.insertBefore(block, pre);
           block.append(btn, pre);
         });
@@ -69,14 +87,19 @@ const labels = copyLabels[lang];
 
           var text = pre.textContent.trim();
 
+          function setLabel(t) {
+            var span = btn.querySelector('.copy-label');
+            if (span) { span.textContent = t; } else { btn.textContent = t; }
+          }
+
           function showCopied() {
-            btn.textContent = {JSON.stringify(labels.copied)};
+            setLabel(labels.copied);
             btn.classList.add('copied');
-            btn.setAttribute('aria-label', {JSON.stringify(labels.ariaCopied)});
+            btn.setAttribute('aria-label', labels.ariaCopied);
             window.setTimeout(function () {
-              btn.textContent = {JSON.stringify(labels.copy)};
+              setLabel(labels.copy);
               btn.classList.remove('copied');
-              btn.setAttribute('aria-label', {JSON.stringify(labels.ariaCopy)});
+              btn.setAttribute('aria-label', labels.ariaCopy);
             }, 2000);
           }
 
@@ -98,14 +121,67 @@ const labels = copyLabels[lang];
               document.execCommand('copy');
               showCopied();
             } catch (err) {
-              btn.textContent = {JSON.stringify(labels.failed)};
+              setLabel(labels.failed);
               window.setTimeout(function () {
-                btn.textContent = {JSON.stringify(labels.copy)};
+                setLabel(labels.copy);
               }, 2000);
             }
             document.body.removeChild(ta);
           }
         });
+
+        var progressBar = document.querySelector('.progress-bar');
+        var toTopBtn = document.querySelector('.to-top');
+        var tocLinks = document.querySelectorAll('nav.toc a');
+        var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+        function updateProgress() {
+          if (!progressBar) return;
+          var docEl = document.documentElement;
+          var max = docEl.scrollHeight - docEl.clientHeight;
+          var ratio = max > 0 ? docEl.scrollTop / max : 0;
+          if (ratio < 0) ratio = 0;
+          if (ratio > 1) ratio = 1;
+          progressBar.style.setProperty('--progress', ratio);
+        }
+
+        function updateToTop() {
+          if (toTopBtn) toTopBtn.classList.toggle('is-visible', window.scrollY > 400);
+        }
+
+        var ticking = false;
+        function onScroll() {
+          if (ticking) return;
+          ticking = true;
+          window.requestAnimationFrame(function () {
+            updateProgress();
+            updateToTop();
+            ticking = false;
+          });
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', updateProgress, { passive: true });
+        updateProgress();
+        updateToTop();
+
+        if (toTopBtn) {
+          toTopBtn.addEventListener('click', function () {
+            window.scrollTo({ top: 0, behavior: reduceMotion.matches ? 'auto' : 'smooth' });
+          });
+        }
+
+        if (tocLinks.length && 'IntersectionObserver' in window) {
+          var spy = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              if (!entry.isIntersecting) return;
+              var id = entry.target.id;
+              tocLinks.forEach(function (a) {
+                a.classList.toggle('is-active', a.getAttribute('href') === '#' + id);
+              });
+            });
+          }, { rootMargin: '-20% 0px -70% 0px', threshold: 0 });
+          document.querySelectorAll('section[id]').forEach(function (s) { spy.observe(s); });
+        }
       })();
     </script>
   </body>

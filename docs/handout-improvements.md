@@ -39,9 +39,9 @@ If that behavior is Cursor-specific, beginners will hunt for Tab in OpenCode. Ei
 
 > Ask for a plan first (“Give me steps before code”), review it, then say “go ahead” when you’re ready.
 
-### 5. Label the quick-test prompt clearly — done
+### 5. Quick-test prompt — removed
 
-Section 3 uses `prompt-step` label **“Quick test — try this first”**, `pre.prompt` for copy, and `#quick-test` anchor.
+The quick-test block that previously ended section 3 has been removed. (It used a `prompt-step` label, `pre.prompt`, and a `#quick-test` anchor.)
 
 ---
 
@@ -53,7 +53,6 @@ Consider anchors or nav labels for:
 
 - Pre-workshop setup (sections 1–3)
 - During session (sections 4–6)
-- Optional: `#quick-test` anchor under Connect
 
 ### 7. Expand “During the workshop”
 

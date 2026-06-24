@@ -1,6 +1,6 @@
 # AI Coding Workshop — Agent Guide
 
-This repo hosts the **participant follow-along guide** for *From Idea to Website: AI Coding for Beginners* — a beginner-friendly workshop on building a first website with AI coding tools (OpenCode + Neuralwatt).
+This repo hosts the **participant follow-along guide** for *From Idea to Website: Vibe Coding for Beginners* — a beginner-friendly workshop on building a first website with AI coding tools (OpenCode + Neuralwatt).
 
 The site is a static [Astro](https://astro.build) app. There are no slides, no React app shell, and no backend.
 
