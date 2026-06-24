@@ -1,16 +1,16 @@
-# AI Coding Workshop — Agent Guide
+# Vibe Coding Workshop — Agent Guide
 
-This repo hosts the **participant follow-along guide** for *From Idea to Website: Vibe Coding for Beginners* — a beginner-friendly workshop on building a first website with AI coding tools (OpenCode + Neuralwatt).
+This repo hosts the **participant follow-along guide** for _From Idea to Website: Vibe Coding for Beginners_ — a beginner-friendly workshop on building a first website with AI coding tools (OpenCode + Neuralwatt).
 
 The site is a static [Astro](https://astro.build) app. There are no slides, no React app shell, and no backend.
 
 ## Routes
 
-| Route | File | Purpose |
-| ----- | ---- | ------- |
-| `/` | `src/pages/index.astro` | English guide (default) |
-| `/fi/` | `src/pages/fi/index.astro` | Finnish guide |
-| `/sv/` | `src/pages/sv/index.astro` | Swedish guide |
+| Route  | File                       | Purpose                 |
+| ------ | -------------------------- | ----------------------- |
+| `/`    | `src/pages/index.astro`    | English guide (default) |
+| `/fi/` | `src/pages/fi/index.astro` | Finnish guide           |
+| `/sv/` | `src/pages/sv/index.astro` | Swedish guide           |
 
 Each language page wraps raw HTML from `src/content/<lang>.html` inside `src/layouts/GuideLayout.astro`.
 
@@ -45,6 +45,7 @@ docs/               # Facilitator notes + original HTML sources
 Guide pages are not Markdown or MDX. Each language file is a self-contained HTML fragment (the `.wrap` div and everything inside it) imported via `?raw` and injected with `<Fragment set:html={content} />`.
 
 `GuideLayout.astro` owns:
+
 - `<html lang>` and `<title>`
 - `hreflang` alternate links
 - Google Fonts (Rubik) + local Alsina heading font (via `guide.css`)
@@ -64,14 +65,14 @@ Match these when adding or restyling content.
 
 ## Common tasks
 
-| Task | Where to edit |
-| ---- | ------------- |
-| Change guide text | `src/content/<lang>.html` |
-| Add a screenshot | Copy to `public/assets/`, reference in content HTML |
-| Update TOC / nav labels | Header `<nav class="toc">` in each `src/content/<lang>.html` |
-| Change page title / meta | `title` const in `src/pages/<lang>/index.astro` |
-| Facilitator script / timing | `docs/outline.md` |
-| Planning / improvement notes | `docs/handout-improvements.md` |
+| Task                         | Where to edit                                                |
+| ---------------------------- | ------------------------------------------------------------ |
+| Change guide text            | `src/content/<lang>.html`                                    |
+| Add a screenshot             | Copy to `public/assets/`, reference in content HTML          |
+| Update TOC / nav labels      | Header `<nav class="toc">` in each `src/content/<lang>.html` |
+| Change page title / meta     | `title` const in `src/pages/<lang>/index.astro`              |
+| Facilitator script / timing  | `docs/outline.md`                                            |
+| Planning / improvement notes | `docs/handout-improvements.md`                               |
 
 ## Deployment
 

@@ -1,4 +1,6 @@
-# From Idea to Website: Vibe Coding for Beginners
+# Vibe Coding Workshop
+
+**From Idea to Website: Vibe Coding for Beginners**
 
 ## Description
 
@@ -23,11 +25,11 @@ By the end of the workshop, each participant will have a working one-page websit
 
 The participant follow-along guide is an [Astro](https://astro.build) static site with three language versions:
 
-| Route | Language |
-| ----- | -------- |
-| `/` | English (default) |
-| `/fi/` | Finnish |
-| `/sv/` | Swedish |
+| Route  | Language          |
+| ------ | ----------------- |
+| `/`    | English (default) |
+| `/fi/` | Finnish           |
+| `/sv/` | Swedish           |
 
 Source content lives in `src/content/` (converted from the original HTML in `docs/`). Shared styles are in `src/styles/guide.css`.
 

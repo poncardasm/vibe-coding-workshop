@@ -1,27 +1,59 @@
 ---
-import '../styles/guide.css';
+import "../styles/guide.css";
 
 interface Props {
-  lang: 'en' | 'fi' | 'sv' | 'ar';
+  lang: "en" | "fi" | "sv" | "ar";
   title: string;
 }
 
 const { lang, title } = Astro.props;
 
 const alternates = [
-  { lang: 'en', href: '/' },
-  { lang: 'fi', href: '/fi/' },
-  { lang: 'sv', href: '/sv/' },
-  { lang: 'ar', href: '/ar/' },
+  { lang: "en", href: "/" },
+  { lang: "fi", href: "/fi/" },
+  { lang: "sv", href: "/sv/" },
+  { lang: "ar", href: "/ar/" },
 ] as const;
 
-const dir = lang === 'ar' ? 'rtl' : 'ltr';
+const dir = lang === "ar" ? "rtl" : "ltr";
 
 const copyLabels = {
-  en: { copy: 'Copy', copied: 'Copied!', failed: 'Failed', ariaCopy: 'Copy prompt to clipboard', ariaCopied: 'Copied to clipboard', skip: 'Skip to content', toTop: 'Back to top' },
-  fi: { copy: 'Kopioi', copied: 'Kopioitu!', failed: 'Epäonnistui', ariaCopy: 'Kopioi kehote leikepöydälle', ariaCopied: 'Kopioitu leikepöydälle', skip: 'Siirry sisältöön', toTop: 'Takaisin ylös' },
-  sv: { copy: 'Kopiera', copied: 'Kopierat!', failed: 'Misslyckades', ariaCopy: 'Kopiera prompt till urklipp', ariaCopied: 'Kopierat till urklipp', skip: 'Hoppa till innehållet', toTop: 'Tillbaka till toppen' },
-  ar: { copy: 'نسخ', copied: 'تم النسخ!', failed: 'فشل', ariaCopy: 'نسخ الموجّه إلى الحافظة', ariaCopied: 'تم النسخ إلى الحافظة', skip: 'تخطَّ إلى المحتوى', toTop: 'العودة إلى الأعلى' },
+  en: {
+    copy: "Copy",
+    copied: "Copied!",
+    failed: "Failed",
+    ariaCopy: "Copy prompt to clipboard",
+    ariaCopied: "Copied to clipboard",
+    skip: "Skip to content",
+    toTop: "Back to top",
+  },
+  fi: {
+    copy: "Kopioi",
+    copied: "Kopioitu!",
+    failed: "Epäonnistui",
+    ariaCopy: "Kopioi kehote leikepöydälle",
+    ariaCopied: "Kopioitu leikepöydälle",
+    skip: "Siirry sisältöön",
+    toTop: "Takaisin ylös",
+  },
+  sv: {
+    copy: "Kopiera",
+    copied: "Kopierat!",
+    failed: "Misslyckades",
+    ariaCopy: "Kopiera prompt till urklipp",
+    ariaCopied: "Kopierat till urklipp",
+    skip: "Hoppa till innehållet",
+    toTop: "Tillbaka till toppen",
+  },
+  ar: {
+    copy: "نسخ",
+    copied: "تم النسخ!",
+    failed: "فشل",
+    ariaCopy: "نسخ الموجّه إلى الحافظة",
+    ariaCopied: "تم النسخ إلى الحافظة",
+    skip: "تخطَّ إلى المحتوى",
+    toTop: "العودة إلى الأعلى",
+  },
 } as const;
 
 const labels = copyLabels[lang];
@@ -33,9 +65,11 @@ const labels = copyLabels[lang];
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
-    {alternates.map(({ lang: hreflang, href }) => (
-      <link rel="alternate" hreflang={hreflang} href={href} />
-    ))}
+    {
+      alternates.map(({ lang: hreflang, href }) => (
+        <link rel="alternate" hreflang={hreflang} href={href} />
+      ))
+    }
     <link rel="alternate" hreflang="x-default" href="/" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -50,75 +84,86 @@ const labels = copyLabels[lang];
     <slot />
     <button class="to-top" type="button" aria-label={labels.toTop}>
       <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-        <path d="M12 5l7 7-1.4 1.4L13 8.8V19h-2V8.8L6.4 13.4 5 12z" fill="currentColor" />
+        <path
+          d="M12 5l7 7-1.4 1.4L13 8.8V19h-2V8.8L6.4 13.4 5 12z"
+          fill="currentColor"></path>
       </svg>
     </button>
     <script is:inline define:vars={{ labels }}>
       (function () {
-        var firstSection = document.querySelector('section');
+        var firstSection = document.querySelector("section");
         if (firstSection) {
-          if (!firstSection.id) firstSection.id = 'main-content';
-          var skipLink = document.querySelector('.skip-link');
-          if (skipLink) skipLink.setAttribute('href', '#' + firstSection.id);
+          if (!firstSection.id) firstSection.id = "main-content";
+          var skipLink = document.querySelector(".skip-link");
+          if (skipLink) skipLink.setAttribute("href", "#" + firstSection.id);
         }
 
-        document.querySelectorAll('pre.prompt').forEach(function (pre) {
-          var block = document.createElement('div');
-          block.className = 'prompt-block';
-          var btn = document.createElement('button');
-          btn.type = 'button';
-          btn.className = 'copy-btn';
-          btn.setAttribute('aria-label', labels.ariaCopy);
+        document.querySelectorAll("pre.prompt").forEach(function (pre) {
+          var block = document.createElement("div");
+          block.className = "prompt-block";
+          var btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "copy-btn";
+          btn.setAttribute("aria-label", labels.ariaCopy);
           btn.innerHTML =
             '<svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' +
             '<rect x="8" y="8" width="14" height="14" rx="2" ry="2"/>' +
             '<path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>' +
-            '</svg><span class="copy-label">' + labels.copy + '</span>';
+            '</svg><span class="copy-label">' +
+            labels.copy +
+            "</span>";
           pre.parentNode.insertBefore(block, pre);
           block.append(btn, pre);
         });
 
-        document.body.addEventListener('click', function (e) {
-          var btn = e.target.closest('.copy-btn');
+        document.body.addEventListener("click", function (e) {
+          var btn = e.target.closest(".copy-btn");
           if (!btn) return;
 
-          var pre = btn.parentElement.querySelector('pre.prompt');
+          var pre = btn.parentElement.querySelector("pre.prompt");
           if (!pre) return;
 
           var text = pre.textContent.trim();
 
           function setLabel(t) {
-            var span = btn.querySelector('.copy-label');
-            if (span) { span.textContent = t; } else { btn.textContent = t; }
+            var span = btn.querySelector(".copy-label");
+            if (span) {
+              span.textContent = t;
+            } else {
+              btn.textContent = t;
+            }
           }
 
           function showCopied() {
             setLabel(labels.copied);
-            btn.classList.add('copied');
-            btn.setAttribute('aria-label', labels.ariaCopied);
+            btn.classList.add("copied");
+            btn.setAttribute("aria-label", labels.ariaCopied);
             window.setTimeout(function () {
               setLabel(labels.copy);
-              btn.classList.remove('copied');
-              btn.setAttribute('aria-label', labels.ariaCopy);
+              btn.classList.remove("copied");
+              btn.setAttribute("aria-label", labels.ariaCopy);
             }, 2000);
           }
 
           if (navigator.clipboard && navigator.clipboard.writeText) {
-            navigator.clipboard.writeText(text).then(showCopied).catch(fallbackCopy);
+            navigator.clipboard
+              .writeText(text)
+              .then(showCopied)
+              .catch(fallbackCopy);
           } else {
             fallbackCopy();
           }
 
           function fallbackCopy() {
-            var ta = document.createElement('textarea');
+            var ta = document.createElement("textarea");
             ta.value = text;
-            ta.setAttribute('readonly', '');
-            ta.style.position = 'fixed';
-            ta.style.left = '-9999px';
+            ta.setAttribute("readonly", "");
+            ta.style.position = "fixed";
+            ta.style.left = "-9999px";
             document.body.appendChild(ta);
             ta.select();
             try {
-              document.execCommand('copy');
+              document.execCommand("copy");
               showCopied();
             } catch (err) {
               setLabel(labels.failed);
@@ -130,10 +175,11 @@ const labels = copyLabels[lang];
           }
         });
 
-        var progressBar = document.querySelector('.progress-bar');
-        var toTopBtn = document.querySelector('.to-top');
-        var tocLinks = document.querySelectorAll('nav.toc a');
-        var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        var progressBar = document.querySelector(".progress-bar");
+        var toTopBtn = document.querySelector(".to-top");
+        var reduceMotion = window.matchMedia(
+          "(prefers-reduced-motion: reduce)",
+        );
 
         function updateProgress() {
           if (!progressBar) return;
@@ -142,11 +188,12 @@ const labels = copyLabels[lang];
           var ratio = max > 0 ? docEl.scrollTop / max : 0;
           if (ratio < 0) ratio = 0;
           if (ratio > 1) ratio = 1;
-          progressBar.style.setProperty('--progress', ratio);
+          progressBar.style.setProperty("--progress", ratio);
         }
 
         function updateToTop() {
-          if (toTopBtn) toTopBtn.classList.toggle('is-visible', window.scrollY > 400);
+          if (toTopBtn)
+            toTopBtn.classList.toggle("is-visible", window.scrollY > 400);
         }
 
         var ticking = false;
@@ -159,28 +206,18 @@ const labels = copyLabels[lang];
             ticking = false;
           });
         }
-        window.addEventListener('scroll', onScroll, { passive: true });
-        window.addEventListener('resize', updateProgress, { passive: true });
+        window.addEventListener("scroll", onScroll, { passive: true });
+        window.addEventListener("resize", updateProgress, { passive: true });
         updateProgress();
         updateToTop();
 
         if (toTopBtn) {
-          toTopBtn.addEventListener('click', function () {
-            window.scrollTo({ top: 0, behavior: reduceMotion.matches ? 'auto' : 'smooth' });
-          });
-        }
-
-        if (tocLinks.length && 'IntersectionObserver' in window) {
-          var spy = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry) {
-              if (!entry.isIntersecting) return;
-              var id = entry.target.id;
-              tocLinks.forEach(function (a) {
-                a.classList.toggle('is-active', a.getAttribute('href') === '#' + id);
-              });
+          toTopBtn.addEventListener("click", function () {
+            window.scrollTo({
+              top: 0,
+              behavior: reduceMotion.matches ? "auto" : "smooth",
             });
-          }, { rootMargin: '-20% 0px -70% 0px', threshold: 0 });
-          document.querySelectorAll('section[id]').forEach(function (s) { spy.observe(s); });
+          });
         }
       })();
     </script>

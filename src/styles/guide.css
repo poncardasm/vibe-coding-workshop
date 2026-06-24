@@ -686,13 +686,6 @@
       transform-origin: right center;
     }
 
-    nav.toc a.is-active {
-      background: var(--accent-soft);
-      border-color: rgba(217, 119, 87, 0.4);
-      color: var(--text);
-      font-weight: 600;
-    }
-
     .to-top {
       position: fixed;
       inset-inline-end: 1rem;

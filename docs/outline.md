@@ -1,4 +1,4 @@
-# AI Coding Workshop Outline
+# Vibe Coding Workshop Outline
 
 ## Working Title
 
