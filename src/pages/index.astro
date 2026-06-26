@@ -1,11 +1,13 @@
 ---
-import GuideLayout from '../layouts/GuideLayout.astro';
-import content from '../content/en.html?raw';
+import GuideLayout from "../layouts/GuideLayout.astro";
+import content from "../content/en.html?raw";
 
-const lang = 'en';
-const title = 'From Idea to Website: Vibe Coding for Beginners';
+const lang = "en";
+const title = "From Idea to Website: Vibe Coding for Beginners";
+const description =
+  "Set up OpenCode, GitHub, and Vercel before we start building. Bookmark this page for easy access.";
 ---
 
-<GuideLayout lang={lang} title={title}>
+<GuideLayout lang={lang} title={title} description={description}>
   <Fragment set:html={content} />
 </GuideLayout>

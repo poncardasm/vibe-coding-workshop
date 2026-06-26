@@ -1,6 +1,6 @@
 # Vibe Coding Workshop — Agent Guide
 
-This repo hosts the **participant follow-along guide** for _From Idea to Website: Vibe Coding for Beginners_ — a beginner-friendly workshop on building a first website with AI coding tools (OpenCode + Neuralwatt).
+This repo hosts the **participant follow-along guide** for _From Idea to Website: Vibe Coding for Beginners_ — a beginner-friendly workshop on building a first website with AI coding tools (OpenCode desktop with built-in models, GitHub, and Vercel).
 
 The site is a static [Astro](https://astro.build) app. There are no slides, no React app shell, and no backend.
 
@@ -11,6 +11,7 @@ The site is a static [Astro](https://astro.build) app. There are no slides, no R
 | `/`    | `src/pages/index.astro`    | English guide (default) |
 | `/fi/` | `src/pages/fi/index.astro` | Finnish guide           |
 | `/sv/` | `src/pages/sv/index.astro` | Swedish guide           |
+| `/ar/` | `src/pages/ar/index.astro` | Arabic guide (RTL)      |
 
 Each language page wraps raw HTML from `src/content/<lang>.html` inside `src/layouts/GuideLayout.astro`.
 
@@ -18,9 +19,10 @@ Each language page wraps raw HTML from `src/content/<lang>.html` inside `src/lay
 
 ```
 src/
-  content/          # Guide body HTML (en, fi, sv)
+  content/          # Guide body HTML (en, fi, sv, ar)
   layouts/          # GuideLayout.astro — head, hreflang, copy-button script
-  pages/            # Astro routes (English at /, fi and sv at /fi/ and /sv/)
+  pages/            # Astro routes (English at /, fi/sv/ar at /fi/, /sv/, /ar/)
+  scripts/          # PhotoSwipe gallery + section accordion init
   styles/
     guide.css       # Guide page styles
 public/
@@ -36,7 +38,7 @@ docs/               # Facilitator notes + original HTML sources
 - **Edit guide copy** in `src/content/<lang>.html`. If you also maintain the standalone HTML in `docs/`, keep both in sync.
 - **Edit styles** in `src/styles/guide.css`. Do not inline large style blocks in Astro files.
 - **Put deployable assets** (fonts, images) in `public/assets/`. Reference them as `/assets/…` in HTML.
-- **Language links** must point to `/` (English), `/fi/`, `/sv/` — not `.html` filenames.
+- **Language links** must point to `/` (English), `/fi/`, `/sv/`, `/ar/` — not `.html` filenames.
 - **Do not add dependencies** unless clearly needed. Prefer plain HTML, CSS, and minimal Astro.
 - **Do not touch** `package.json` or `astro.config.mjs` unless the task requires it.
 
@@ -48,8 +50,12 @@ Guide pages are not Markdown or MDX. Each language file is a self-contained HTML
 
 - `<html lang>` and `<title>`
 - `hreflang` alternate links
+- Per-language `description` plus Open Graph and Twitter card meta tags
 - Google Fonts (Rubik) + local Alsina heading font (via `guide.css`)
 - Copy-to-clipboard buttons on `pre.prompt` blocks (inline script)
+- Scroll progress bar and back-to-top button (inline script)
+- PhotoSwipe lightbox init for screenshot galleries
+- Collapsible section accordions (sections 2–7 fold open/closed)
 
 When adding a new section, follow existing patterns: numbered `<section id="…">`, `.card`, `.note`, `.btn-row`, track accordions (`<details class="track-accordion">`), and `pre.prompt` blocks for copyable prompts.
 
@@ -70,7 +76,7 @@ Match these when adding or restyling content.
 | Change guide text            | `src/content/<lang>.html`                                    |
 | Add a screenshot             | Copy to `public/assets/`, reference in content HTML          |
 | Update TOC / nav labels      | Header `<nav class="toc">` in each `src/content/<lang>.html` |
-| Change page title / meta     | `title` const in `src/pages/<lang>/index.astro`              |
+| Change page title / meta     | `title` and `description` in `src/pages/<lang>/index.astro`  |
 | Facilitator script / timing  | `docs/outline.md`                                            |
 | Planning / improvement notes | `docs/handout-improvements.md`                               |
 

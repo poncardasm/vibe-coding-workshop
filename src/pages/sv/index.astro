@@ -1,11 +1,13 @@
 ---
-import GuideLayout from '../../layouts/GuideLayout.astro';
-import content from '../../content/sv.html?raw';
+import GuideLayout from "../../layouts/GuideLayout.astro";
+import content from "../../content/sv.html?raw";
 
-const lang = 'sv';
+const lang = "sv";
 const title = "Från idé till webbplats: AI-kodning för nybörjare";
+const description =
+  "Installera OpenCode, GitHub och Vercel innan vi börjar bygga. Bokmärk den här sidan för enkel åtkomst.";
 ---
 
-<GuideLayout lang={lang} title={title}>
+<GuideLayout lang={lang} title={title} description={description}>
   <Fragment set:html={content} />
 </GuideLayout>

@@ -11,8 +11,7 @@ Suggestions for `docs/en-workshop-guide.html` — prioritized for a live beginne
 Right under the lede, add a short checklist:
 
 - [ ] OpenCode desktop installed
-- [ ] Neuralwatt account created and API key copied
-- [ ] Neuralwatt connected in OpenCode (provider + model selected)
+- [ ] Free model selected in OpenCode (section 2)
 - [ ] Empty project folder created (e.g. `my-website`)
 
 Today the handout jumps from “connect” to prompts without saying where files live or how to open that folder in OpenCode.
@@ -27,7 +26,7 @@ Section 6 says “open the site in the browser often” but never explains how. 
 
 ### 3. Pin one recommended model — done
 
-Handout standardizes on **Kimi K2.6** for the workshop (section 3 + troubleshooting). Other Neuralwatt models are mentioned only as optional after the session.
+Handout standardizes on one **free built-in model** for the workshop (section 2 + troubleshooting). The facilitator names which model everyone uses so the steps match.
 
 ### 4. Verify or soften the Plan mode tip
 
@@ -145,7 +144,7 @@ Header note: “Print to PDF” for spotty Wi‑Fi. Web fonts may still need net
 
 - Clear numbered flow: install → key → connect → prompts → live session
 - Copy buttons on long prompts
-- Screenshots for Neuralwatt setup
+- Screenshots for GitHub and Vercel sign-up
 - API key security callout
 - Two tracks + bonus accordion
 - Print stylesheet
@@ -164,12 +163,12 @@ If time is limited, do these first:
 
 ## Related files
 
-| File                         | Role                                                   |
-| ---------------------------- | ------------------------------------------------------ |
-| `src/pages/`                 | Astro routes (`/`, `/en/`, `/fi/`, `/sv/`)             |
-| `src/content/`               | Guide body HTML per language                           |
-| `src/styles/guide.css`       | Shared guide styles                                    |
-| `public/assets/`             | Fonts and screenshots served at `/assets/`             |
-| `docs/*.html`                | Original HTML sources (optional reference)             |
-| `docs/outline.md`            | Facilitator script and timing                          |
-| `docs/assets/`               | Source screenshots (copied to `public/assets/` for the site) |
+| File                   | Role                                                         |
+| ---------------------- | ------------------------------------------------------------ |
+| `src/pages/`           | Astro routes (`/`, `/en/`, `/fi/`, `/sv/`)                   |
+| `src/content/`         | Guide body HTML per language                                 |
+| `src/styles/guide.css` | Shared guide styles                                          |
+| `public/assets/`       | Fonts and screenshots served at `/assets/`                   |
+| `docs/*.html`          | Original HTML sources (optional reference)                   |
+| `docs/outline.md`      | Facilitator script and timing                                |
+| `docs/assets/`         | Source screenshots (copied to `public/assets/` for the site) |

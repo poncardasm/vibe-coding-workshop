@@ -5,9 +5,28 @@ import "photoswipe/style.css";
 interface Props {
   lang: "en" | "fi" | "sv" | "ar";
   title: string;
+  description: string;
 }
 
-const { lang, title } = Astro.props;
+const { lang, title, description } = Astro.props;
+
+const pagePaths = {
+  en: "/",
+  fi: "/fi/",
+  sv: "/sv/",
+  ar: "/ar/",
+} as const;
+
+const ogLocales = {
+  en: "en_US",
+  fi: "fi_FI",
+  sv: "sv_SE",
+  ar: "ar",
+} as const;
+
+const pageUrl = Astro.site
+  ? new URL(pagePaths[lang], Astro.site).href
+  : undefined;
 
 const alternates = [
   { lang: "en", href: "/" },
@@ -66,6 +85,16 @@ const labels = copyLabels[lang];
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
+    <meta name="description" content={description} />
+    {pageUrl && <link rel="canonical" href={pageUrl} />}
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    {pageUrl && <meta property="og:url" content={pageUrl} />}
+    <meta property="og:locale" content={ogLocales[lang]} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
     {
       alternates.map(({ lang: hreflang, href }) => (
         <link rel="alternate" hreflang={hreflang} href={href} />
