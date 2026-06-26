@@ -11,182 +11,93 @@
       </div>
       <p class="eyebrow">دليل المتابعة</p>
       <h1>من الفكرة إلى موقع ويب:<br />البرمجة بالذكاء الاصطناعي للمبتدئين</h1>
-      <p class="lede">أعدّ OpenCode وNeuralwatt وGitHub وVercel قبل أن نبدأ البناء. أضف هذه الصفحة إلى المفضّلة للوصول السريع.</p>
+      <p class="lede">أعدّ OpenCode وGitHub وVercel قبل أن نبدأ البناء. أضف هذه الصفحة إلى المفضّلة للوصول السريع.</p>
       <nav class="toc" aria-label="في هذه الصفحة">
-        <a href="#opencode"><span class="num" aria-hidden="true">1</span> OpenCode</a>
-        <a href="#neuralwatt"><span class="num" aria-hidden="true">2</span> Neuralwatt</a>
-        <a href="#connect"><span class="num" aria-hidden="true">3</span> ربطهما</a>
-        <a href="#github"><span class="num" aria-hidden="true">4</span> GitHub</a>
-        <a href="#vercel"><span class="num" aria-hidden="true">5</span> Vercel</a>
-        <a href="#writing-prompts"><span class="num" aria-hidden="true">6</span> كتابة الموجّهات</a>
-        <a href="#prompts"><span class="num" aria-hidden="true">7</span> أمثلة على الموجّهات</a>
-        <a href="#during"><span class="num" aria-hidden="true">8</span> أثناء الورشة</a>
+        <a href="#install"><span class="num" aria-hidden="true">1</span> ثبّت هذه أولاً</a>
+        <a href="#connect"><span class="num" aria-hidden="true">2</span> اختر نموذج الذكاء الاصطناعي</a>
+        <a href="#github"><span class="num" aria-hidden="true">3</span> GitHub</a>
+        <a href="#vercel"><span class="num" aria-hidden="true">4</span> Vercel</a>
+        <a href="#writing-prompts"><span class="num" aria-hidden="true">5</span> كتابة الموجّهات</a>
+        <a href="#prompts"><span class="num" aria-hidden="true">6</span> أمثلة على الموجّهات</a>
+        <a href="#during"><span class="num" aria-hidden="true">7</span> أثناء الورشة</a>
       </nav>
     </header>
 
-    <section id="opencode">
-      <h2><span class="num" aria-hidden="true">1</span> تثبيت OpenCode (سطح المكتب)</h2>
+    <section id="install">
+      <h2><span class="num" aria-hidden="true">1</span> ثبّت هذه أولاً</h2>
+      <p>
+        قبل أن تبدأ ببناء مشروعك، تأكّد من تثبيت كل هذه التطبيقات. جميعها مجانية — وعند الشك، أبقِ الخيارات الافتراضية في كل شاشة.
+      </p>
+
+      <h3>1. VS Code — محرّر الأكواد الخاص بك</h3>
+      <p>
+        <a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer">Visual Studio Code</a> محرّر مجاني يمكنك فيه فتح ملفات الموقع الذي تبنيه والاطلاع عليها.
+      </p>
+      <div class="btn-row">
+        <a class="btn btn-primary btn-glow" href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer">تنزيل VS Code</a>
+      </div>
+      <ul>
+        <li><strong>Windows:</strong> افتح <a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer">code.visualstudio.com</a>، انقر <strong>Download for Windows</strong>، شغّل المثبّت وأبقِ الخيارات الافتراضية</li>
+        <li><strong>macOS:</strong> نزّل الملف، فُكّ ضغطه، واسحب <strong>Visual Studio Code</strong> إلى مجلد التطبيقات</li>
+      </ul>
+
+      <h3>2. Git — لحفظ عملك على GitHub</h3>
+      <p>
+        <a href="https://git-scm.com/" target="_blank" rel="noopener noreferrer">Git</a> يتيح لحاسوبك إرسال الموقع الذي تبنيه إلى GitHub (القسم 3) كي يُنشَر. لن تكتب أوامر Git اليوم — سنفعل ذلك معاً.
+      </p>
+      <div class="btn-row">
+        <a class="btn btn-primary btn-glow" href="https://git-scm.com/downloads" target="_blank" rel="noopener noreferrer">تنزيل Git</a>
+      </div>
+      <ul>
+        <li><strong>Windows:</strong> افتح <a href="https://git-scm.com/install/windows" target="_blank" rel="noopener noreferrer">git-scm.com/install/windows</a>، نزّل المثبّت وشغّله — أبقِ الخيارات الافتراضية في كل شاشة</li>
+        <li><strong>macOS:</strong> عادةً ما يكون Git مثبّتاً مسبقاً. للتأكد، افتح <strong>Terminal</strong> ونفّذ <code>git --version</code>؛ وإن كان مفقوداً، سيعرض macOS تثبيته نيابةً عنك</li>
+      </ul>
+
+      <h3>3. OpenCode (سطح المكتب) — شغّل نماذج ذكاء اصطناعي مفتوحة المصدر</h3>
       <p>
         نستخدم <strong>OpenCode</strong> — وكيل برمجة بالذكاء الاصطناعي مفتوح المصدر يعمل في الطرفية وتطبيق سطح المكتب وإضافات بيئات التطوير.
         لهذه الورشة، ثبّت <strong>تطبيق سطح المكتب</strong> (إصدار تجريبي).
       </p>
-
       <div class="btn-row">
-        <a class="btn btn-primary" href="https://opencode.ai/download" target="_blank" rel="noopener noreferrer">تنزيل OpenCode Desktop</a>
+        <a class="btn btn-primary btn-glow" href="https://opencode.ai/download" target="_blank" rel="noopener noreferrer">تنزيل OpenCode Desktop</a>
       </div>
-
-      <h3>macOS</h3>
-      <ol>
-        <li>افتح <a href="https://opencode.ai/download" target="_blank" rel="noopener noreferrer">opencode.ai/download</a></li>
-        <li>نزّل الإصدار المناسب لمعالجك (<strong>Apple Silicon</strong> أو <strong>Intel</strong>)</li>
-        <li>افتح المثبّت واسحب OpenCode إلى مجلد التطبيقات</li>
-        <li>عند أول تشغيل، اسمح للتطبيق إذا طلب macOS ذلك</li>
-      </ol>
-
-      <h3>Windows</h3>
-      <ol>
-        <li>من <a href="https://opencode.ai/download" target="_blank" rel="noopener noreferrer">صفحة التنزيل</a>، احصل على <strong>Windows (x64)</strong></li>
-        <li>شغّل المثبّت وأكمل الإعداد</li>
-        <li>شغّل OpenCode من قائمة ابدأ</li>
-      </ol>
-
-      <h3>Linux</h3>
-      <ol>
-        <li>نزّل <strong>.deb</strong> أو <strong>.rpm</strong> من <a href="https://opencode.ai/download" target="_blank" rel="noopener noreferrer">صفحة التنزيل</a></li>
-        <li>ثبّته بمدير الحزم لديك، ثم افتح OpenCode</li>
-      </ol>
-
+      <ul>
+        <li><strong>Windows:</strong> من <a href="https://opencode.ai/download" target="_blank" rel="noopener noreferrer">صفحة التنزيل</a> احصل على <strong>Windows (x64)</strong>، شغّل المثبّت وشغّل OpenCode من قائمة ابدأ</li>
+        <li><strong>macOS:</strong> نزّل الإصدار المناسب لمعالجك (<strong>Apple Silicon</strong> أو <strong>Intel</strong>)، افتح المثبّت واسحب OpenCode إلى مجلد التطبيقات. عند أول تشغيل، اسمح للتطبيق إذا طلب macOS ذلك.</li>
+        <li><strong>Linux:</strong> نزّل <strong>.deb</strong> أو <strong>.rpm</strong> من <a href="https://opencode.ai/download" target="_blank" rel="noopener noreferrer">صفحة التنزيل</a> وثبّته بمدير الحزم لديك</li>
+      </ul>
       <p class="note">اختياري: يتوفر OpenCode أيضاً كتطبيق طرفية (<code>curl -fsSL https://opencode.ai/install | bash</code>). تطبيق سطح المكتب يكفي لليوم.</p>
     </section>
 
-    <section id="neuralwatt">
-      <h2><span class="num" aria-hidden="true">2</span> الحصول على مفتاح Neuralwatt API</h2>
-      <p>
-        <a href="https://portal.neuralwatt.com/" target="_blank" rel="noopener noreferrer">Neuralwatt Cloud</a> يوفّر واجهة برمجة تطبيقات متوافقة مع OpenAI لنماذج البرمجة.
-        التسجيل مجاني — الحسابات الجديدة تحصل على <strong>رصيد تجريبي بقيمة 5 دولارات</strong>، صالح لمدة <strong>30 يوماً</strong>.
-      </p>
-
-      <div class="btn-row">
-        <a class="btn btn-primary" href="https://portal.neuralwatt.com/auth/register" target="_blank" rel="noopener noreferrer">إنشاء حساب مجاني</a>
-        <a class="btn btn-secondary" href="https://portal.neuralwatt.com/" target="_blank" rel="noopener noreferrer">بوابة Neuralwatt</a>
-      </div>
-
-      <h3>إنشاء مفتاح API</h3>
-      <ol>
-        <li>اذهب إلى <a href="https://portal.neuralwatt.com/auth/register" target="_blank" rel="noopener noreferrer">portal.neuralwatt.com/auth/register</a> وأنشئ حسابك</li>
-        <li>سجّل الدخول إلى البوابة وافتح <strong>Dashboard → API Keys</strong></li>
-      </ol>
-
-      <div class="screenshots">
-        <figure>
-          <img
-            src="/assets/screenshots/neuralwatt-step-2.jpg"
-            alt="لوحة تحكم بوابة Neuralwatt مع Quick Actions وAPI Keys &amp; Allowances"
-            width="1379"
-            height="1027"
-            loading="lazy"
-          />
-        </figure>
-      </div>
-
-      <ol start="3">
-        <li>انقر <strong>Create Key</strong>، وسمّه (مثلاً <code>workshop</code>)</li>
-      </ol>
-
-      <div class="screenshots">
-        <figure>
-          <img
-            src="/assets/screenshots/neuralwatt-step-3.jpg"
-            alt="مربع حوار Create New API Key مع حقل Key Name مضبوط على workshop"
-            width="1379"
-            height="1027"
-            loading="lazy"
-          />
-        </figure>
-      </div>
-
-      <ol start="4">
-        <li>انسخ المفتاح واحفظه في مكان آمن — لن ترى المفتاح كاملاً مرة أخرى</li>
-      </ol>
-
-      <div class="screenshots">
-        <figure>
-          <img
-            src="/assets/screenshots/neuralwatt-step-4.jpg"
-            alt="مربع حوار API Key Created Successfully مع زر النسخ إلى الحافظة"
-            width="1379"
-            height="738"
-            loading="lazy"
-          />
-        </figure>
-      </div>
-
-      <div class="card highlight">
-        <p class="card-title">الرصيد التجريبي للورشة</p>
-        <p style="margin:0">
-          <strong>رصيدك التجريبي البالغ 5 دولارات</strong> يستمر <strong>30 يوماً</strong> من تاريخ التسجيل — يكفي لتمارين اليوم والممارسة اللاحقة.
-          يستخدم Neuralwatt تسعيراً يعتمد على الطاقة؛ راجع استخدامك في لوحة تحكم البوابة إذا أردت معرفة ما تبقّى.
-        </p>
-      </div>
-
-      <p class="note warn">
-        <strong>أبقِ مفتاحك سرياً.</strong> لا تلصقه في الدردشة أو الشرائح أو GitHub. عامله ككلمة مرور.
-      </p>
-    </section>
-
     <section id="connect">
-      <h2><span class="num" aria-hidden="true">3</span> ربط OpenCode بـ Neuralwatt</h2>
-      <p>بعد تثبيت OpenCode والحصول على مفتاح Neuralwatt API، اربطهما في تطبيق سطح المكتب — لا حاجة لملفات إعداد أو متغيرات بيئة.</p>
+      <h2><span class="num" aria-hidden="true">2</span> اختر نموذج الذكاء الاصطناعي</h2>
+      <p>
+        يحتاج OpenCode إلى نموذج ذكاء اصطناعي للبرمجة. يأتي تطبيق سطح المكتب بنماذج مجانية مدمجة، لذا <strong>لا حاجة لإنشاء مفتاح API ولا شيء تدفعه</strong> — تختار نموذجاً وتبدأ فقط.
+      </p>
 
       <h3>في OpenCode Desktop</h3>
       <ol>
-        <li>افتح OpenCode وانقر أيقونة <strong>الإعدادات</strong> (الترس) في الشريط الجانبي</li>
-        <li>تحت <strong>Server</strong>، انقر <strong>Providers</strong></li>
-        <li>ابحث عن <strong>Neuralwatt</strong> وانقر <strong>+</strong> بجانبه</li>
-        <li>الصق مفتاح API وانقر <strong>Continue</strong></li>
-        <li>انقر <strong>اسم النموذج</strong> أسفل مربع الدردشة (بجانب <strong>Build</strong>)، وابحث تحت <strong>Neuralwatt</strong>، واختر <strong>Kimi K2.6</strong> — هذا النموذج الذي سنستخدمه في ورشة اليوم</li>
+        <li>افتح OpenCode. إذا طلب منك <strong>تسجيل الدخول</strong>، فاتبع التعليمات — الحساب المجاني يفتح النماذج المدمجة.</li>
+        <li>انقر <strong>اسم النموذج</strong> أسفل مربع الدردشة (بجانب <strong>Build</strong>) لفتح منتقي النماذج</li>
+        <li>اختر أحد النماذج <strong>المجانية</strong> في القائمة — سيخبرك ميسّر الورشة أيّ نموذج نستخدمه جميعاً اليوم</li>
       </ol>
 
-      <p class="note">استخدم <strong>Kimi K2.6</strong> لجميع التمارين اليوم حتى يتبع الجميع نفس الإعداد. يمكنك تجربة نماذج Neuralwatt الأخرى لاحقاً من منتقي النماذج.</p>
-
-      <div class="screenshots">
-        <figure>
-          <img
-            src="/assets/opencode-connect-provider-neuralwatt.png"
-            alt="مربع حوار Connect provider في OpenCode مع تمييز Neuralwatt في نتائج البحث"
-            width="681"
-            height="367"
-            loading="lazy"
-          />
-          <figcaption>ابحث عن Neuralwatt وانقر <strong>+</strong> لإضافة المزوّد</figcaption>
-        </figure>
-        <figure>
-          <img
-            src="/assets/opencode-connect-neuralwatt-api-key.png"
-            alt="مربع حوار Connect Neuralwatt مع حقل مفتاح API وزر Continue"
-            width="681"
-            height="389"
-            loading="lazy"
-          />
-          <figcaption>الصق مفتاح Neuralwatt API وانقر <strong>Continue</strong></figcaption>
-        </figure>
-      </div>
+      <p class="note">يستخدم الجميع <strong>نفس النموذج</strong> اليوم حتى تتطابق الخطوات. يمكنك تبديل النماذج في أي وقت من المنتقي أسفل مربع الدردشة.</p>
 
       <p class="note">
-        المزيد من التفاصيل: <a href="https://portal.neuralwatt.com/docs/integrations/opencode" target="_blank" rel="noopener noreferrer">دليل Neuralwatt × OpenCode</a>
-        و<a href="https://opencode.ai/docs/providers" target="_blank" rel="noopener noreferrer">توثيق مزوّدي OpenCode</a>.
+        المزيد من التفاصيل: <a href="https://opencode.ai/docs/providers" target="_blank" rel="noopener noreferrer">توثيق مزوّدي OpenCode</a>.
       </p>
     </section>
 
     <section id="github">
-      <h2><span class="num" aria-hidden="true">4</span> إنشاء حساب GitHub</h2>
+      <h2><span class="num" aria-hidden="true">3</span> إنشاء حساب GitHub</h2>
       <p>
         <a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a> هو المكان الذي سنخزّن فيه الموقع الذي تبنيه اليوم.
         حساب مجاني يكفي — سنرفع مشروعك هناك أثناء الورشة حتى تحتفظ به وتشاركه.
       </p>
 
       <div class="btn-row">
-        <a class="btn btn-primary" href="https://github.com/signup" target="_blank" rel="noopener noreferrer">التسجيل في GitHub</a>
+        <a class="btn btn-primary btn-glow" href="https://github.com/signup" target="_blank" rel="noopener noreferrer">التسجيل في GitHub</a>
         <a class="btn btn-secondary" href="https://github.com/login" target="_blank" rel="noopener noreferrer">تسجيل الدخول</a>
       </div>
 
@@ -229,21 +140,21 @@
     </section>
 
     <section id="vercel">
-      <h2><span class="num" aria-hidden="true">5</span> إنشاء حساب Vercel</h2>
+      <h2><span class="num" aria-hidden="true">4</span> إنشاء حساب Vercel</h2>
       <p>
         <a href="https://vercel.com/" target="_blank" rel="noopener noreferrer">Vercel</a> ينشر موقعك على الإنترنت ويعطيك رابطاً قابلاً للمشاركة (مثلاً <code>your-site.vercel.app</code>).
         الخطة المجانية <strong>Hobby</strong> تكفي لموقع اليوم ذي الصفحة الواحدة.
       </p>
 
       <div class="btn-row">
-        <a class="btn btn-primary" href="https://vercel.com/signup" target="_blank" rel="noopener noreferrer">التسجيل في Vercel</a>
+        <a class="btn btn-primary btn-glow" href="https://vercel.com/signup" target="_blank" rel="noopener noreferrer">التسجيل في Vercel</a>
         <a class="btn btn-secondary" href="https://vercel.com/login" target="_blank" rel="noopener noreferrer">تسجيل الدخول</a>
       </div>
 
       <h3>التسجيل (موصى به: استخدم GitHub)</h3>
       <ol>
         <li>اذهب إلى <a href="https://vercel.com/signup" target="_blank" rel="noopener noreferrer">vercel.com/signup</a></li>
-        <li>انقر <strong>Continue with GitHub</strong> — هذا أسهل مسار لأنك أنشأت حساب GitHub في القسم 4</li>
+        <li>انقر <strong>Continue with GitHub</strong> — هذا أسهل مسار لأنك أنشأت حساب GitHub في القسم 3</li>
       </ol>
 
       <div class="screenshots">
@@ -255,7 +166,7 @@
             height="649"
             loading="lazy"
           />
-          <figcaption>التسجيل في Vercel — انقر <strong>Continue with GitHub</strong> للتسجيل بالحساب الذي أنشأته في القسم 4</figcaption>
+          <figcaption>التسجيل في Vercel — انقر <strong>Continue with GitHub</strong> للتسجيل بالحساب الذي أنشأته في القسم 3</figcaption>
         </figure>
       </div>
 
@@ -274,12 +185,12 @@
       </div>
 
       <p class="note warn">
-        <strong>لا تلصق الأسرار.</strong> مفتاح Neuralwatt API يبقى في OpenCode فقط — لا ترفع مفاتيح API إلى GitHub ولا تضفها إلى ملفات موقعك.
+        <strong>لا تلصق الأسرار.</strong> لا ترفع كلمات المرور أو مفاتيح API إلى GitHub ولا تضفها إلى ملفات موقعك.
       </p>
     </section>
 
     <section id="writing-prompts">
-      <h2><span class="num" aria-hidden="true">6</span> كتابة الموجّهات</h2>
+      <h2><span class="num" aria-hidden="true">5</span> كتابة الموجّهات</h2>
       <p>
         يعمل الذكاء الاصطناعي بأفضل حال عندما تكتب كأنك تشرح لزميل مساعد: هدف واضح، سياق كافٍ، وطلب واحد في كل مرة.
       </p>
@@ -317,7 +228,7 @@
     </section>
 
     <section id="prompts">
-      <h2><span class="num" aria-hidden="true">7</span> أمثلة على الموجّهات</h2>
+      <h2><span class="num" aria-hidden="true">6</span> أمثلة على الموجّهات</h2>
       <p>
         اختر <strong>مساراً واحداً</strong> أدناه. انسخ كل موجّه إلى OpenCode بالترتيب.
         استبدل أي شيء بين <code>[أقواس]</code> بتفاصيلك الخاصة قبل الإرسال.
@@ -486,7 +397,7 @@
     </section>
 
     <section id="during">
-      <h2><span class="num" aria-hidden="true">8</span> أثناء الورشة</h2>
+      <h2><span class="num" aria-hidden="true">7</span> أثناء الورشة</h2>
 
       <div class="card">
         <p class="card-title">كيف سنعمل مع الذكاء الاصطناعي</p>
@@ -501,17 +412,15 @@
 
       <h3>أوامر OpenCode المفيدة</h3>
       <ul>
-        <li><strong>Settings → Providers</strong> — أضف أو غيّر مزوّد الذكاء الاصطناعي (مثلاً Neuralwatt)</li>
-        <li><strong>منتقي النموذج</strong> (أسفل مربع الدردشة) — يجب أن يظهر <strong>Kimi K2.6</strong> تحت Neuralwatt لليوم</li>
+        <li><strong>منتقي النموذج</strong> (أسفل مربع الدردشة) — بدّل النماذج أو تأكّد أنك على النموذج المجاني الذي نستخدمه اليوم</li>
         <li><kbd>/init</kbd> — ساعد OpenCode على فهم مشروعك (شغّله مرة واحدة لكل مجلد)</li>
         <li><kbd>/undo</kbd> — التراجع عن آخر تغيير</li>
       </ul>
 
       <h3>إذا حدث خطأ ما</h3>
       <ul>
-        <li><strong>أخطاء المصادقة</strong> — افتح <strong>Settings → Providers → Neuralwatt</strong> وأعد لصق مفتاح API</li>
-        <li><strong>نفاد الرصيد (Neuralwatt)</strong> — راجع رصيدك في لوحة تحكم البوابة؛ الرصيد التجريبي يستمر 30 يوماً</li>
-        <li><strong>النموذج غير موجود</strong> — انقر اسم النموذج أسفل مربع الدردشة، وابحث عن <strong>Kimi K2.6</strong> تحت Neuralwatt، واختره من القائمة (لا تكتب معرّفات النماذج يدوياً)</li>
+        <li><strong>لم يُختر أي نموذج</strong> — انقر اسم النموذج أسفل مربع الدردشة واختر النموذج المجاني من القائمة</li>
+        <li><strong>طُلب منك تسجيل الدخول</strong> — اتبع تعليمات OpenCode؛ الحساب المجاني يفتح النماذج المدمجة</li>
         <li>اسأل الميسّر — نحن هنا للمساعدة</li>
       </ul>
     </section>
@@ -522,8 +431,6 @@
         <ul>
           <li><a href="https://opencode.ai/download">تنزيل OpenCode</a></li>
           <li><a href="https://opencode.ai/docs">توثيق OpenCode</a></li>
-          <li><a href="https://portal.neuralwatt.com/auth/register">Neuralwatt — إنشاء حساب</a></li>
-          <li><a href="https://portal.neuralwatt.com/docs/integrations/opencode">إعداد Neuralwatt × OpenCode</a></li>
           <li><a href="https://github.com/signup">GitHub — التسجيل</a></li>
           <li><a href="https://vercel.com/signup">Vercel — التسجيل</a></li>
         </ul>

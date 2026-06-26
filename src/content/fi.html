@@ -11,182 +11,93 @@
       </div>
       <p class="eyebrow">Seuraa mukana -opas</p>
       <h1>Ideasta verkkosivuksi: Tekoälyavusteinen koodaus aloittelijoille</h1>
-      <p class="lede">Asenna OpenCode, Neuralwatt, GitHub ja Vercel ennen kuin aloitamme rakentamisen. Lisää tämä sivu kirjanmerkkeihin, jotta löydät sen helposti.</p>
+      <p class="lede">Asenna OpenCode, GitHub ja Vercel ennen kuin aloitamme rakentamisen. Lisää tämä sivu kirjanmerkkeihin, jotta löydät sen helposti.</p>
       <nav class="toc" aria-label="Tällä sivulla">
-        <a href="#opencode"><span class="num" aria-hidden="true">1</span> OpenCode</a>
-        <a href="#neuralwatt"><span class="num" aria-hidden="true">2</span> Neuralwatt</a>
-        <a href="#connect"><span class="num" aria-hidden="true">3</span> Yhdistä ne</a>
-        <a href="#github"><span class="num" aria-hidden="true">4</span> GitHub</a>
-        <a href="#vercel"><span class="num" aria-hidden="true">5</span> Vercel</a>
-        <a href="#writing-prompts"><span class="num" aria-hidden="true">6</span> Kehotteiden kirjoittaminen</a>
-        <a href="#prompts"><span class="num" aria-hidden="true">7</span> Esimerkkikehotteet</a>
-        <a href="#during"><span class="num" aria-hidden="true">8</span> Työpajan aikana</a>
+        <a href="#install"><span class="num" aria-hidden="true">1</span> Asenna nämä ensin</a>
+        <a href="#connect"><span class="num" aria-hidden="true">2</span> Valitse tekoälymalli</a>
+        <a href="#github"><span class="num" aria-hidden="true">3</span> GitHub</a>
+        <a href="#vercel"><span class="num" aria-hidden="true">4</span> Vercel</a>
+        <a href="#writing-prompts"><span class="num" aria-hidden="true">5</span> Kehotteiden kirjoittaminen</a>
+        <a href="#prompts"><span class="num" aria-hidden="true">6</span> Esimerkkikehotteet</a>
+        <a href="#during"><span class="num" aria-hidden="true">7</span> Työpajan aikana</a>
       </nav>
     </header>
 
-    <section id="opencode">
-      <h2><span class="num" aria-hidden="true">1</span> Asenna OpenCode (työpöytäsovellus)</h2>
+    <section id="install">
+      <h2><span class="num" aria-hidden="true">1</span> Asenna nämä ensin</h2>
+      <p>
+        Ennen kuin alat rakentaa projektiasi, varmista, että sinulla on kaikki nämä sovellukset asennettuna. Ne ovat kaikki ilmaisia — epävarmoissa kohdissa säilytä oletusasetukset joka näytöllä.
+      </p>
+
+      <h3>1. VS Code — koodieditorisi</h3>
+      <p>
+        <a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer">Visual Studio Code</a> on ilmainen editori, jossa voit avata ja tarkastella rakentamasi verkkosivun tiedostoja.
+      </p>
+      <div class="btn-row">
+        <a class="btn btn-primary btn-glow" href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer">Lataa VS Code</a>
+      </div>
+      <ul>
+        <li><strong>Windows:</strong> avaa <a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer">code.visualstudio.com</a>, klikkaa <strong>Download for Windows</strong>, suorita asennusohjelma ja säilytä oletusasetukset</li>
+        <li><strong>macOS:</strong> lataa, pura paketti ja vedä <strong>Visual Studio Code</strong> Ohjelmat-kansioon</li>
+      </ul>
+
+      <h3>2. Git — työsi tallentamiseen GitHubiin</h3>
+      <p>
+        <a href="https://git-scm.com/" target="_blank" rel="noopener noreferrer">Git</a> antaa tietokoneesi lähettää rakentamasi verkkosivun GitHubiin (osio 3), jotta se voidaan julkaista. Et kirjoita Git-komentoja tänään — teemme sen yhdessä.
+      </p>
+      <div class="btn-row">
+        <a class="btn btn-primary btn-glow" href="https://git-scm.com/downloads" target="_blank" rel="noopener noreferrer">Lataa Git</a>
+      </div>
+      <ul>
+        <li><strong>Windows:</strong> avaa <a href="https://git-scm.com/install/windows" target="_blank" rel="noopener noreferrer">git-scm.com/install/windows</a>, lataa asennusohjelma ja suorita se — säilytä oletusasetukset joka näytöllä</li>
+        <li><strong>macOS:</strong> Git on yleensä jo valmiina. Tarkista avaamalla <strong>Terminal</strong> ja suorittamalla <code>git --version</code>; jos se puuttuu, macOS tarjoutuu asentamaan sen puolestasi</li>
+      </ul>
+
+      <h3>3. OpenCode (työpöytäsovellus) — aja avoimen lähdekoodin tekoälymalleja</h3>
       <p>
         Käytämme <strong>OpenCodea</strong> — avoimen lähdekoodin tekoälykoodausagenttia, joka toimii terminaalissa, työpöytäsovelluksena ja IDE-laajennuksissa.
         Tätä työpajaa varten asenna <strong>työpöytäsovellus</strong> (beta).
       </p>
-
       <div class="btn-row">
-        <a class="btn btn-primary" href="https://opencode.ai/download" target="_blank" rel="noopener noreferrer">Lataa OpenCode Desktop</a>
+        <a class="btn btn-primary btn-glow" href="https://opencode.ai/download" target="_blank" rel="noopener noreferrer">Lataa OpenCode Desktop</a>
       </div>
-
-      <h3>macOS</h3>
-      <ol>
-        <li>Avaa <a href="https://opencode.ai/download" target="_blank" rel="noopener noreferrer">opencode.ai/download</a></li>
-        <li>Lataa prosessorillesi sopiva versio (<strong>Apple Silicon</strong> tai <strong>Intel</strong>)</li>
-        <li>Avaa asennusohjelma ja vedä OpenCode Ohjelmat-kansioon</li>
-        <li>Salli sovellus ensimmäisellä käynnistyksellä, jos macOS pyytää</li>
-      </ol>
-
-      <h3>Windows</h3>
-      <ol>
-        <li><a href="https://opencode.ai/download" target="_blank" rel="noopener noreferrer">Lataussivulta</a> valitse <strong>Windows (x64)</strong></li>
-        <li>Suorita asennusohjelma loppuun</li>
-        <li>Käynnistä OpenCode Käynnistä-valikosta</li>
-      </ol>
-
-      <h3>Linux</h3>
-      <ol>
-        <li>Lataa <strong>.deb</strong>- tai <strong>.rpm</strong>-paketti <a href="https://opencode.ai/download" target="_blank" rel="noopener noreferrer">lataussivulta</a></li>
-        <li>Asenna paketinhallinnalla ja avaa OpenCode</li>
-      </ol>
-
+      <ul>
+        <li><strong>Windows:</strong> valitse <a href="https://opencode.ai/download" target="_blank" rel="noopener noreferrer">lataussivulta</a> <strong>Windows (x64)</strong>, suorita asennusohjelma ja käynnistä OpenCode Käynnistä-valikosta</li>
+        <li><strong>macOS:</strong> lataa prosessorillesi sopiva versio (<strong>Apple Silicon</strong> tai <strong>Intel</strong>), avaa asennusohjelma ja vedä OpenCode Ohjelmat-kansioon. Salli sovellus ensimmäisellä käynnistyksellä, jos macOS pyytää.</li>
+        <li><strong>Linux:</strong> lataa <strong>.deb</strong>- tai <strong>.rpm</strong>-paketti <a href="https://opencode.ai/download" target="_blank" rel="noopener noreferrer">lataussivulta</a> ja asenna paketinhallinnalla</li>
+      </ul>
       <p class="note">Valinnainen: OpenCode on saatavilla myös terminaalisovelluksena (<code>curl -fsSL https://opencode.ai/install | bash</code>). Työpöytäsovellus riittää tähän työpajaan.</p>
     </section>
 
-    <section id="neuralwatt">
-      <h2><span class="num" aria-hidden="true">2</span> Hanki Neuralwatt API-avain</h2>
-      <p>
-        <a href="https://portal.neuralwatt.com/" target="_blank" rel="noopener noreferrer">Neuralwatt Cloud</a> tarjoaa OpenAI-yhteensopivan rajapinnan koodausmalleille.
-        Rekisteröityminen on ilmaista — uudet tilit saavat <strong>$5 kokeilusaldoa</strong>, voimassa <strong>30 päivää</strong>.
-      </p>
-
-      <div class="btn-row">
-        <a class="btn btn-primary" href="https://portal.neuralwatt.com/auth/register" target="_blank" rel="noopener noreferrer">Luo ilmainen tili</a>
-        <a class="btn btn-secondary" href="https://portal.neuralwatt.com/" target="_blank" rel="noopener noreferrer">Neuralwatt-portaali</a>
-      </div>
-
-      <h3>Luo API-avain</h3>
-      <ol>
-        <li>Mene osoitteeseen <a href="https://portal.neuralwatt.com/auth/register" target="_blank" rel="noopener noreferrer">portal.neuralwatt.com/auth/register</a> ja luo tili</li>
-        <li>Kirjaudu portaaliin ja avaa <strong>Dashboard → API Keys</strong></li>
-      </ol>
-
-      <div class="screenshots">
-        <figure>
-          <img
-            src="/assets/screenshots/neuralwatt-step-2.jpg"
-            alt="Neuralwatt-portaalin kojelauta, jossa Quick Actions -kohdassa API Keys &amp; Allowances"
-            width="1379"
-            height="1027"
-            loading="lazy"
-          />
-        </figure>
-      </div>
-
-      <ol start="3">
-        <li>Napsauta <strong>Create Key</strong>, anna avaimelle nimi (esim. <code>workshop</code>)</li>
-      </ol>
-
-      <div class="screenshots">
-        <figure>
-          <img
-            src="/assets/screenshots/neuralwatt-step-3.jpg"
-            alt="Create New API Key -valintaikkuna, jossa Key Name -kenttään on kirjoitettu workshop"
-            width="1379"
-            height="1027"
-            loading="lazy"
-          />
-        </figure>
-      </div>
-
-      <ol start="4">
-        <li>Kopioi avain ja säilytä sitä turvallisesti — et näe koko avainta uudelleen</li>
-      </ol>
-
-      <div class="screenshots">
-        <figure>
-          <img
-            src="/assets/screenshots/neuralwatt-step-4.jpg"
-            alt="API Key Created Successfully -valintaikkuna ja kopioi leikepöydälle -painike"
-            width="1379"
-            height="738"
-            loading="lazy"
-          />
-        </figure>
-      </div>
-
-      <div class="card highlight">
-        <p class="card-title">Kokeilusaldo työpajaa varten</p>
-        <p style="margin:0">
-          <strong>$5 kokeilusaldo</strong> on voimassa <strong>30 päivää</strong> rekisteröitymisestä — riittää tämän päivän harjoituksiin ja jatkoharjoitteluun.
-          Neuralwatt käyttää energiapohjaista hinnoittelua; tarkista käyttösi portaalin hallintapaneelista, jos haluat nähdä jäljellä olevan saldon.
-        </p>
-      </div>
-
-      <p class="note warn">
-        <strong>Pidä avain yksityisenä.</strong> Älä liitä sitä chattiin, dioihin tai GitHubiin. Kohtele sitä kuten salasanaa.
-      </p>
-    </section>
-
     <section id="connect">
-      <h2><span class="num" aria-hidden="true">3</span> Yhdistä OpenCode Neuralwattiin</h2>
-      <p>Kun OpenCode on asennettu ja sinulla on Neuralwatt API-avain, yhdistä se työpöytäsovelluksessa — konfiguraatiotiedostoja tai ympäristömuuttujia ei tarvita.</p>
+      <h2><span class="num" aria-hidden="true">2</span> Valitse tekoälymalli</h2>
+      <p>
+        OpenCode tarvitsee tekoälymallin koodaamiseen. Työpöytäsovelluksessa on mukana ilmaisia sisäänrakennettuja malleja, joten <strong>API-avainta ei tarvitse luoda eikä mitään tarvitse maksaa</strong> — valitset vain mallin ja aloitat.
+      </p>
 
       <h3>OpenCode Desktopissa</h3>
       <ol>
-        <li>Avaa OpenCode ja napsauta sivupalkissa <strong>asetukset</strong>-kuvaketta (ratas)</li>
-        <li>Valitse <strong>Server</strong>-kohdasta <strong>Providers</strong></li>
-        <li>Etsi <strong>Neuralwatt</strong> ja napsauta sen vieressä olevaa <strong>+</strong>-painiketta</li>
-        <li>Liitä API-avaimesi ja napsauta <strong>Continue</strong></li>
-        <li>Napsauta chattiruudun alapuolella olevaa <strong>mallin nimeä</strong> (<strong>Build</strong>-kohdan vieressä), etsi <strong>Neuralwatt</strong>-kohdasta ja valitse <strong>Kimi K2.6</strong> — sitä mallia käytämme tämän päivän työpajassa</li>
+        <li>Avaa OpenCode. Jos se pyytää <strong>kirjautumaan</strong>, seuraa ohjetta — ilmainen tili avaa sisäänrakennetut mallit.</li>
+        <li>Napsauta chattiruudun alapuolella olevaa <strong>mallin nimeä</strong> (<strong>Build</strong>-kohdan vieressä) avataksesi mallivalitsimen</li>
+        <li>Valitse jokin listan <strong>ilmaisista</strong> malleista — ohjaaja kertoo, mitä mallia käytämme tänään kaikki yhdessä</li>
       </ol>
 
-      <p class="note">Käytä <strong>Kimi K2.6</strong>-mallia kaikissa tämän päivän harjoituksissa, jotta kaikilla on sama asetus. Voit kokeilla muita Neuralwatt-malleja myöhemmin mallivalitsimesta.</p>
-
-      <div class="screenshots">
-        <figure>
-          <img
-            src="/assets/opencode-connect-provider-neuralwatt.png"
-            alt="OpenCoden yhdistä palveluntarjoaja -valintaikkuna, jossa Neuralwatt on korostettu hakutuloksissa"
-            width="681"
-            height="367"
-            loading="lazy"
-          />
-          <figcaption>Etsi Neuralwatt ja napsauta <strong>+</strong> lisätäksesi palveluntarjoajan</figcaption>
-        </figure>
-        <figure>
-          <img
-            src="/assets/opencode-connect-neuralwatt-api-key.png"
-            alt="OpenCoden Neuralwatt-yhdistämisikkuna API-avainkentällä ja Continue-painikkeella"
-            width="681"
-            height="389"
-            loading="lazy"
-          />
-          <figcaption>Liitä Neuralwatt API-avaimesi ja napsauta <strong>Continue</strong></figcaption>
-        </figure>
-      </div>
+      <p class="note">Kaikki käyttävät <strong>samaa mallia</strong> tänään, jotta vaiheet täsmäävät. Voit vaihtaa mallia milloin tahansa chattiruudun alapuolella olevasta valitsimesta.</p>
 
       <p class="note">
-        Lisätietoja: <a href="https://portal.neuralwatt.com/docs/integrations/opencode" target="_blank" rel="noopener noreferrer">Neuralwatt × OpenCode -opas</a>
-        ja <a href="https://opencode.ai/docs/providers" target="_blank" rel="noopener noreferrer">OpenCoden palveluntarjoaja-dokumentaatio</a>.
+        Lisätietoja: <a href="https://opencode.ai/docs/providers" target="_blank" rel="noopener noreferrer">OpenCoden palveluntarjoaja-dokumentaatio</a>.
       </p>
     </section>
 
     <section id="github">
-      <h2><span class="num" aria-hidden="true">4</span> Luo GitHub-tili</h2>
+      <h2><span class="num" aria-hidden="true">3</span> Luo GitHub-tili</h2>
       <p>
         <a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a> on paikka, johon tallennamme tänään rakentamasi verkkosivun.
         Ilmainen tili riittää — työpajan aikana siirrämme projektisi sinne, jotta voit säilyttää sen ja jakaa sen.
       </p>
 
       <div class="btn-row">
-        <a class="btn btn-primary" href="https://github.com/signup" target="_blank" rel="noopener noreferrer">Rekisteröidy GitHubiin</a>
+        <a class="btn btn-primary btn-glow" href="https://github.com/signup" target="_blank" rel="noopener noreferrer">Rekisteröidy GitHubiin</a>
         <a class="btn btn-secondary" href="https://github.com/login" target="_blank" rel="noopener noreferrer">Kirjaudu sisään</a>
       </div>
 
@@ -229,21 +140,21 @@
     </section>
 
     <section id="vercel">
-      <h2><span class="num" aria-hidden="true">5</span> Luo Vercel-tili</h2>
+      <h2><span class="num" aria-hidden="true">4</span> Luo Vercel-tili</h2>
       <p>
         <a href="https://vercel.com/" target="_blank" rel="noopener noreferrer">Vercel</a> julkaisee sivustosi internetiin ja antaa jaettavan linkin (esim. <code>sinun-sivusi.vercel.app</code>).
         Ilmainen <strong>Hobby</strong>-paketti riittää tämän päivän yksisivuiselle sivustolle.
       </p>
 
       <div class="btn-row">
-        <a class="btn btn-primary" href="https://vercel.com/signup" target="_blank" rel="noopener noreferrer">Rekisteröidy Verceliin</a>
+        <a class="btn btn-primary btn-glow" href="https://vercel.com/signup" target="_blank" rel="noopener noreferrer">Rekisteröidy Verceliin</a>
         <a class="btn btn-secondary" href="https://vercel.com/login" target="_blank" rel="noopener noreferrer">Kirjaudu sisään</a>
       </div>
 
       <h3>Rekisteröidy (suositus: käytä GitHubia)</h3>
       <ol>
         <li>Siirry osoitteeseen <a href="https://vercel.com/signup" target="_blank" rel="noopener noreferrer">vercel.com/signup</a></li>
-        <li>Napsauta <strong>Continue with GitHub</strong> — tämä on helpoin tapa, koska loit GitHub-tilin jo osiossa 4</li>
+        <li>Napsauta <strong>Continue with GitHub</strong> — tämä on helpoin tapa, koska loit GitHub-tilin jo osiossa 3</li>
       </ol>
 
       <div class="screenshots">
@@ -255,7 +166,7 @@
             height="649"
             loading="lazy"
           />
-          <figcaption>Vercelin rekisteröinti — napsauta <strong>Continue with GitHub</strong> ja käytä osiossa 4 luomaasi tiliä</figcaption>
+          <figcaption>Vercelin rekisteröinti — napsauta <strong>Continue with GitHub</strong> ja käytä osiossa 3 luomaasi tiliä</figcaption>
         </figure>
       </div>
 
@@ -274,12 +185,12 @@
       </div>
 
       <p class="note warn">
-        <strong>Älä liitä salaisuuksia.</strong> Neuralwatt API-avain pysyy vain OpenCodessa — älä koskaan tallenna API-avaimia GitHubiin tai verkkosivutiedostoihisi.
+        <strong>Älä liitä salaisuuksia.</strong> Älä koskaan tallenna salasanoja tai API-avaimia GitHubiin tai verkkosivutiedostoihisi.
       </p>
     </section>
 
     <section id="writing-prompts">
-      <h2><span class="num" aria-hidden="true">6</span> Kehotteiden kirjoittaminen</h2>
+      <h2><span class="num" aria-hidden="true">5</span> Kehotteiden kirjoittaminen</h2>
       <p>
         Tekoäly toimii parhaiten, kun kirjoitat kuin ohjeistaisit avuliaan tiimikaverin: selkeä tavoite, riittävästi kontekstia ja yksi pyyntö kerrallaan.
       </p>
@@ -318,7 +229,7 @@
     </section>
 
     <section id="prompts">
-      <h2><span class="num" aria-hidden="true">7</span> Esimerkkikehotteet</h2>
+      <h2><span class="num" aria-hidden="true">6</span> Esimerkkikehotteet</h2>
       <p>
         Valitse <strong>yksi polku</strong> alta. Kopioi jokainen kehote OpenCodeen järjestyksessä.
         Korvaa kaikki <code>[hakasulkeissa]</code> olevat tiedot omillasi ennen lähettämistä.
@@ -487,7 +398,7 @@ Korjaa vain tämä ongelma index.html:ssä. Näytä tarkalleen mitä CSS:ää mu
     </section>
 
     <section id="during">
-      <h2><span class="num" aria-hidden="true">8</span> Työpajan aikana</h2>
+      <h2><span class="num" aria-hidden="true">7</span> Työpajan aikana</h2>
 
       <div class="card">
         <p class="card-title">Näin työskentelemme tekoälyn kanssa</p>
@@ -502,17 +413,15 @@ Korjaa vain tämä ongelma index.html:ssä. Näytä tarkalleen mitä CSS:ää mu
 
       <h3>Hyödylliset OpenCode-komennot</h3>
       <ul>
-        <li><strong>Settings → Providers</strong> — lisää tai vaihda tekoälypalveluntarjoaja (esim. Neuralwatt)</li>
-        <li><strong>Model picker</strong> (chattiruudun alapuolella) — pitäisi näyttää <strong>Kimi K2.6</strong> Neuralwatt-kohdassa tänään</li>
+        <li><strong>Model picker</strong> (chattiruudun alapuolella) — vaihda mallia tai varmista, että käytät tämän päivän ilmaista mallia</li>
         <li><kbd>/init</kbd> — auttaa OpenCodea ymmärtämään projektisi (aja kerran per kansio)</li>
         <li><kbd>/undo</kbd> — peru viimeisin muutos</li>
       </ul>
 
       <h3>Jos jokin menee pieleen</h3>
       <ul>
-        <li><strong>Todennusvirheet</strong> — avaa <strong>Settings → Providers → Neuralwatt</strong> ja liitä API-avain uudelleen</li>
-        <li><strong>Saldo loppunut (Neuralwatt)</strong> — tarkista saldo portaalin hallintapaneelista; kokeilusaldo kestää 30 päivää</li>
-        <li><strong>Mallia ei löydy</strong> — napsauta chattiruudun alapuolella olevaa mallin nimeä, etsi <strong>Kimi K2.6</strong> Neuralwatt-kohdasta ja valitse se listasta (älä kirjoita mallitunnuksia käsin)</li>
+        <li><strong>Mallia ei ole valittu</strong> — napsauta chattiruudun alapuolella olevaa mallin nimeä ja valitse ilmainen malli listasta</li>
+        <li><strong>Pyytää kirjautumaan</strong> — seuraa OpenCoden ohjetta; ilmainen tili avaa sisäänrakennetut mallit</li>
         <li>Kysy fasilitaattorilta — olemme täällä auttamassa</li>
       </ul>
     </section>
@@ -523,8 +432,6 @@ Korjaa vain tämä ongelma index.html:ssä. Näytä tarkalleen mitä CSS:ää mu
         <ul>
           <li><a href="https://opencode.ai/download">OpenCode-lataus</a></li>
           <li><a href="https://opencode.ai/docs">OpenCode-dokumentaatio</a></li>
-          <li><a href="https://portal.neuralwatt.com/auth/register">Neuralwatt — luo tili</a></li>
-          <li><a href="https://portal.neuralwatt.com/docs/integrations/opencode">Neuralwatt × OpenCode -asennus</a></li>
           <li><a href="https://github.com/signup">GitHub — rekisteröidy</a></li>
           <li><a href="https://vercel.com/signup">Vercel — rekisteröidy</a></li>
         </ul>

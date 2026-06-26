@@ -284,7 +284,7 @@
       font-family: var(--font-ui);
       font-size: 0.95rem;
       font-weight: 600;
-      margin: 1.25rem 0 0.5rem;
+      margin: 2.25rem 0 0.5rem;
     }
 
     p { margin-bottom: 0.9rem; text-wrap: pretty; }
@@ -361,9 +361,40 @@
     .btn:active { transform: translateY(0); }
 
     .btn-primary {
-      background: var(--accent);
+      background: #7a8962;
       color: #fff;
-      box-shadow: 0 2px 8px rgba(217, 119, 87, 0.35);
+      box-shadow: 0 2px 8px rgba(122, 137, 98, 0.35);
+    }
+
+    .btn-glow {
+      position: relative;
+      z-index: 0;
+    }
+
+    /* Static multi-colour ring around the button edge */
+    .btn-glow::before {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      border-radius: calc(var(--radius) + 2px);
+      padding: 2px;
+      background: conic-gradient(
+        from 135deg,
+        #7a8962,
+        #e8b04b,
+        #d97757,
+        #7a8962
+      );
+      /* show only the border ring, not the filled centre */
+      -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
     }
 
     .btn-secondary {

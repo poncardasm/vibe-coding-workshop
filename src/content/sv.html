@@ -11,182 +11,93 @@
       </div>
       <p class="eyebrow">Följ med-guide</p>
       <h1>Från idé till webbplats: AI-kodning för nybörjare</h1>
-      <p class="lede">Installera OpenCode, Neuralwatt, GitHub och Vercel innan vi börjar bygga. Bokmärk den här sidan för enkel åtkomst.</p>
+      <p class="lede">Installera OpenCode, GitHub och Vercel innan vi börjar bygga. Bokmärk den här sidan för enkel åtkomst.</p>
       <nav class="toc" aria-label="På den här sidan">
-        <a href="#opencode"><span class="num" aria-hidden="true">1</span> OpenCode</a>
-        <a href="#neuralwatt"><span class="num" aria-hidden="true">2</span> Neuralwatt</a>
-        <a href="#connect"><span class="num" aria-hidden="true">3</span> Koppla ihop dem</a>
-        <a href="#github"><span class="num" aria-hidden="true">4</span> GitHub</a>
-        <a href="#vercel"><span class="num" aria-hidden="true">5</span> Vercel</a>
-        <a href="#writing-prompts"><span class="num" aria-hidden="true">6</span> Skriva prompts</a>
-        <a href="#prompts"><span class="num" aria-hidden="true">7</span> Exempelprompts</a>
-        <a href="#during"><span class="num" aria-hidden="true">8</span> Under workshopen</a>
+        <a href="#install"><span class="num" aria-hidden="true">1</span> Installera dessa först</a>
+        <a href="#connect"><span class="num" aria-hidden="true">2</span> Välj din AI-modell</a>
+        <a href="#github"><span class="num" aria-hidden="true">3</span> GitHub</a>
+        <a href="#vercel"><span class="num" aria-hidden="true">4</span> Vercel</a>
+        <a href="#writing-prompts"><span class="num" aria-hidden="true">5</span> Skriva prompts</a>
+        <a href="#prompts"><span class="num" aria-hidden="true">6</span> Exempelprompts</a>
+        <a href="#during"><span class="num" aria-hidden="true">7</span> Under workshopen</a>
       </nav>
     </header>
 
-    <section id="opencode">
-      <h2><span class="num" aria-hidden="true">1</span> Installera OpenCode (skrivbordsapp)</h2>
+    <section id="install">
+      <h2><span class="num" aria-hidden="true">1</span> Installera dessa först</h2>
+      <p>
+        Innan du börjar bygga ditt projekt, se till att du har alla dessa appar installerade. De är alla gratis — om du är osäker, behåll standardalternativen på varje skärm.
+      </p>
+
+      <h3>1. VS Code — din kodredigerare</h3>
+      <p>
+        <a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer">Visual Studio Code</a> är en gratis redigerare där du kan öppna och titta på filerna för webbplatsen du bygger.
+      </p>
+      <div class="btn-row">
+        <a class="btn btn-primary btn-glow" href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer">Ladda ner VS Code</a>
+      </div>
+      <ul>
+        <li><strong>Windows:</strong> öppna <a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer">code.visualstudio.com</a>, klicka på <strong>Download for Windows</strong>, kör installationsprogrammet och behåll standardalternativen</li>
+        <li><strong>macOS:</strong> ladda ner, packa upp och dra <strong>Visual Studio Code</strong> till Program</li>
+      </ul>
+
+      <h3>2. Git — för att spara ditt arbete till GitHub</h3>
+      <p>
+        <a href="https://git-scm.com/" target="_blank" rel="noopener noreferrer">Git</a> låter din dator skicka webbplatsen du bygger till GitHub (avsnitt 3) så att den kan publiceras. Du skriver inga Git-kommandon idag — vi gör det tillsammans.
+      </p>
+      <div class="btn-row">
+        <a class="btn btn-primary btn-glow" href="https://git-scm.com/downloads" target="_blank" rel="noopener noreferrer">Ladda ner Git</a>
+      </div>
+      <ul>
+        <li><strong>Windows:</strong> öppna <a href="https://git-scm.com/install/windows" target="_blank" rel="noopener noreferrer">git-scm.com/install/windows</a>, ladda ner installationsprogrammet och kör det — behåll standardalternativen på varje skärm</li>
+        <li><strong>macOS:</strong> Git finns oftast redan. Kontrollera genom att öppna <strong>Terminal</strong> och köra <code>git --version</code>; om det saknas erbjuder sig macOS att installera det åt dig</li>
+      </ul>
+
+      <h3>3. OpenCode (skrivbordsapp) — kör AI-modeller med öppen källkod</h3>
       <p>
         Vi använder <strong>OpenCode</strong> — en AI-kodningsagent med öppen källkod som fungerar i terminalen, som skrivbordsapp och som IDE-tillägg.
         För den här workshopen, installera <strong>skrivbordsappen</strong> (beta).
       </p>
-
       <div class="btn-row">
-        <a class="btn btn-primary" href="https://opencode.ai/download" target="_blank" rel="noopener noreferrer">Ladda ner OpenCode Desktop</a>
+        <a class="btn btn-primary btn-glow" href="https://opencode.ai/download" target="_blank" rel="noopener noreferrer">Ladda ner OpenCode Desktop</a>
       </div>
-
-      <h3>macOS</h3>
-      <ol>
-        <li>Öppna <a href="https://opencode.ai/download" target="_blank" rel="noopener noreferrer">opencode.ai/download</a></li>
-        <li>Ladda ner versionen för din processor (<strong>Apple Silicon</strong> eller <strong>Intel</strong>)</li>
-        <li>Öppna installationsprogrammet och dra OpenCode till Program</li>
-        <li>Tillåt appen vid första start om macOS frågar</li>
-      </ol>
-
-      <h3>Windows</h3>
-      <ol>
-        <li>På <a href="https://opencode.ai/download" target="_blank" rel="noopener noreferrer">nedladdningssidan</a>, välj <strong>Windows (x64)</strong></li>
-        <li>Kör installationsprogrammet och slutför installationen</li>
-        <li>Starta OpenCode från Start-menyn</li>
-      </ol>
-
-      <h3>Linux</h3>
-      <ol>
-        <li>Ladda ner <strong>.deb</strong> eller <strong>.rpm</strong> från <a href="https://opencode.ai/download" target="_blank" rel="noopener noreferrer">nedladdningssidan</a></li>
-        <li>Installera med pakethanteraren och öppna sedan OpenCode</li>
-      </ol>
-
+      <ul>
+        <li><strong>Windows:</strong> välj <strong>Windows (x64)</strong> på <a href="https://opencode.ai/download" target="_blank" rel="noopener noreferrer">nedladdningssidan</a>, kör installationsprogrammet och starta OpenCode från Start-menyn</li>
+        <li><strong>macOS:</strong> ladda ner versionen för din processor (<strong>Apple Silicon</strong> eller <strong>Intel</strong>), öppna installationsprogrammet och dra OpenCode till Program. Tillåt appen vid första start om macOS frågar.</li>
+        <li><strong>Linux:</strong> ladda ner <strong>.deb</strong> eller <strong>.rpm</strong> från <a href="https://opencode.ai/download" target="_blank" rel="noopener noreferrer">nedladdningssidan</a> och installera med pakethanteraren</li>
+      </ul>
       <p class="note">Valfritt: OpenCode finns också som terminalapp (<code>curl -fsSL https://opencode.ai/install | bash</code>). Skrivbordsappen räcker för idag.</p>
     </section>
 
-    <section id="neuralwatt">
-      <h2><span class="num" aria-hidden="true">2</span> Skaffa en Neuralwatt API-nyckel</h2>
-      <p>
-        <a href="https://portal.neuralwatt.com/" target="_blank" rel="noopener noreferrer">Neuralwatt Cloud</a> tillhandahåller ett OpenAI-kompatibelt API för kodningsmodeller.
-        Registreringen är gratis — nya konton får <strong>$5 i testkredit</strong>, giltig i <strong>30 dagar</strong>.
-      </p>
-
-      <div class="btn-row">
-        <a class="btn btn-primary" href="https://portal.neuralwatt.com/auth/register" target="_blank" rel="noopener noreferrer">Skapa gratiskonto</a>
-        <a class="btn btn-secondary" href="https://portal.neuralwatt.com/" target="_blank" rel="noopener noreferrer">Neuralwatt-portalen</a>
-      </div>
-
-      <h3>Skapa din API-nyckel</h3>
-      <ol>
-        <li>Gå till <a href="https://portal.neuralwatt.com/auth/register" target="_blank" rel="noopener noreferrer">portal.neuralwatt.com/auth/register</a> och skapa ditt konto</li>
-        <li>Logga in i portalen och öppna <strong>Dashboard → API Keys</strong></li>
-      </ol>
-
-      <div class="screenshots">
-        <figure>
-          <img
-            src="/assets/screenshots/neuralwatt-step-2.jpg"
-            alt="Neuralwatt-portalens instrumentpanel med Quick Actions och API Keys &amp; Allowances"
-            width="1379"
-            height="1027"
-            loading="lazy"
-          />
-        </figure>
-      </div>
-
-      <ol start="3">
-        <li>Klicka på <strong>Create Key</strong>, ge den ett namn (t.ex. <code>workshop</code>)</li>
-      </ol>
-
-      <div class="screenshots">
-        <figure>
-          <img
-            src="/assets/screenshots/neuralwatt-step-3.jpg"
-            alt="Dialogrutan Create New API Key med Key Name-fältet satt till workshop"
-            width="1379"
-            height="1027"
-            loading="lazy"
-          />
-        </figure>
-      </div>
-
-      <ol start="4">
-        <li>Kopiera nyckeln och förvara den på ett säkert ställe — du ser inte hela nyckeln igen</li>
-      </ol>
-
-      <div class="screenshots">
-        <figure>
-          <img
-            src="/assets/screenshots/neuralwatt-step-4.jpg"
-            alt="Dialogrutan API Key Created Successfully med kopiera till urklipp-knapp"
-            width="1379"
-            height="738"
-            loading="lazy"
-          />
-        </figure>
-      </div>
-
-      <div class="card highlight">
-        <p class="card-title">Testkredit för workshopen</p>
-        <p style="margin:0">
-          Din <strong>$5 testkredit</strong> gäller i <strong>30 dagar</strong> från registrering — tillräckligt för dagens övningar och fortsatt övning.
-          Neuralwatt använder energibaserad prissättning; kontrollera din användning i portalens instrumentpanel om du vill se vad som återstår.
-        </p>
-      </div>
-
-      <p class="note warn">
-        <strong>Håll din nyckel privat.</strong> Klistra inte in den i chatt, presentationer eller GitHub. Behandla den som ett lösenord.
-      </p>
-    </section>
-
     <section id="connect">
-      <h2><span class="num" aria-hidden="true">3</span> Koppla OpenCode till Neuralwatt</h2>
-      <p>När OpenCode är installerat och du har din Neuralwatt API-nyckel, koppla ihop dem i skrivbordsappen — inga konfigurationsfiler eller miljövariabler behövs.</p>
+      <h2><span class="num" aria-hidden="true">2</span> Välj din AI-modell</h2>
+      <p>
+        OpenCode behöver en AI-modell för att koda. Skrivbordsappen kommer med gratis inbyggda modeller, så det finns <strong>ingen API-nyckel att skapa och inget att betala</strong> — du väljer bara en modell och sätter igång.
+      </p>
 
       <h3>I OpenCode Desktop</h3>
       <ol>
-        <li>Öppna OpenCode och klicka på <strong>inställningar</strong>-ikonen (kugghjul) i sidofältet</li>
-        <li>Under <strong>Server</strong>, klicka på <strong>Providers</strong></li>
-        <li>Sök efter <strong>Neuralwatt</strong> och klicka på <strong>+</strong> bredvid det</li>
-        <li>Klistra in din API-nyckel och klicka på <strong>Continue</strong></li>
-        <li>Klicka på <strong>modellnamnet</strong> under chattrutan (bredvid <strong>Build</strong>), sök under <strong>Neuralwatt</strong> och välj <strong>Kimi K2.6</strong> — den modellen använder vi i dagens workshop</li>
+        <li>Öppna OpenCode. Om den ber dig <strong>logga in</strong>, följ anvisningen — ett gratiskonto låser upp de inbyggda modellerna.</li>
+        <li>Klicka på <strong>modellnamnet</strong> under chattrutan (bredvid <strong>Build</strong>) för att öppna modellväljaren</li>
+        <li>Välj en av de <strong>gratis</strong> modellerna i listan — din workshopledare berättar vilken vi alla använder idag</li>
       </ol>
 
-      <p class="note">Använd <strong>Kimi K2.6</strong> för alla övningar idag så att alla har samma uppsättning. Du kan prova andra Neuralwatt-modeller senare i modellväljaren.</p>
-
-      <div class="screenshots">
-        <figure>
-          <img
-            src="/assets/opencode-connect-provider-neuralwatt.png"
-            alt="OpenCode-dialogen Anslut leverantör med Neuralwatt markerat i sökresultaten"
-            width="681"
-            height="367"
-            loading="lazy"
-          />
-          <figcaption>Sök efter Neuralwatt och klicka på <strong>+</strong> för att lägga till leverantören</figcaption>
-        </figure>
-        <figure>
-          <img
-            src="/assets/opencode-connect-neuralwatt-api-key.png"
-            alt="OpenCode-dialogen Anslut Neuralwatt med API-nyckelfält och Continue-knapp"
-            width="681"
-            height="389"
-            loading="lazy"
-          />
-          <figcaption>Klistra in din Neuralwatt API-nyckel och klicka på <strong>Continue</strong></figcaption>
-        </figure>
-      </div>
+      <p class="note">Alla använder <strong>samma modell</strong> idag så att stegen stämmer. Du kan byta modell när som helst i väljaren under chattrutan.</p>
 
       <p class="note">
-        Mer information: <a href="https://portal.neuralwatt.com/docs/integrations/opencode" target="_blank" rel="noopener noreferrer">Neuralwatt × OpenCode-guide</a>
-        och <a href="https://opencode.ai/docs/providers" target="_blank" rel="noopener noreferrer">OpenCodes leverantörsdokumentation</a>.
+        Mer information: <a href="https://opencode.ai/docs/providers" target="_blank" rel="noopener noreferrer">OpenCodes leverantörsdokumentation</a>.
       </p>
     </section>
 
     <section id="github">
-      <h2><span class="num" aria-hidden="true">4</span> Skapa ett GitHub-konto</h2>
+      <h2><span class="num" aria-hidden="true">3</span> Skapa ett GitHub-konto</h2>
       <p>
         <a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a> är där vi sparar webbplatsen du bygger idag.
         Ett gratis konto räcker — under workshopen laddar vi upp ditt projekt dit så att du kan behålla det och dela det.
       </p>
 
       <div class="btn-row">
-        <a class="btn btn-primary" href="https://github.com/signup" target="_blank" rel="noopener noreferrer">Registrera dig på GitHub</a>
+        <a class="btn btn-primary btn-glow" href="https://github.com/signup" target="_blank" rel="noopener noreferrer">Registrera dig på GitHub</a>
         <a class="btn btn-secondary" href="https://github.com/login" target="_blank" rel="noopener noreferrer">Logga in</a>
       </div>
 
@@ -229,21 +140,21 @@
     </section>
 
     <section id="vercel">
-      <h2><span class="num" aria-hidden="true">5</span> Skapa ett Vercel-konto</h2>
+      <h2><span class="num" aria-hidden="true">4</span> Skapa ett Vercel-konto</h2>
       <p>
         <a href="https://vercel.com/" target="_blank" rel="noopener noreferrer">Vercel</a> publicerar din webbplats på internet och ger dig en delbar länk (t.ex. <code>din-webbplats.vercel.app</code>).
         Den gratis <strong>Hobby</strong>-planen räcker för dagens ensideswebbplats.
       </p>
 
       <div class="btn-row">
-        <a class="btn btn-primary" href="https://vercel.com/signup" target="_blank" rel="noopener noreferrer">Registrera dig på Vercel</a>
+        <a class="btn btn-primary btn-glow" href="https://vercel.com/signup" target="_blank" rel="noopener noreferrer">Registrera dig på Vercel</a>
         <a class="btn btn-secondary" href="https://vercel.com/login" target="_blank" rel="noopener noreferrer">Logga in</a>
       </div>
 
       <h3>Registrera dig (rekommenderat: använd GitHub)</h3>
       <ol>
         <li>Gå till <a href="https://vercel.com/signup" target="_blank" rel="noopener noreferrer">vercel.com/signup</a></li>
-        <li>Klicka på <strong>Continue with GitHub</strong> — det är enklast eftersom du redan skapade ett GitHub-konto i avsnitt 4</li>
+        <li>Klicka på <strong>Continue with GitHub</strong> — det är enklast eftersom du redan skapade ett GitHub-konto i avsnitt 3</li>
       </ol>
 
       <div class="screenshots">
@@ -255,7 +166,7 @@
             height="649"
             loading="lazy"
           />
-          <figcaption>Vercel-registrering — klicka på <strong>Continue with GitHub</strong> och använd kontot du skapade i avsnitt 4</figcaption>
+          <figcaption>Vercel-registrering — klicka på <strong>Continue with GitHub</strong> och använd kontot du skapade i avsnitt 3</figcaption>
         </figure>
       </div>
 
@@ -274,12 +185,12 @@
       </div>
 
       <p class="note warn">
-        <strong>Klistra inte in hemligheter.</strong> Din Neuralwatt API-nyckel stannar bara i OpenCode — committa aldrig API-nycklar till GitHub eller lägg dem i dina webbplatsfiler.
+        <strong>Klistra inte in hemligheter.</strong> Committa aldrig lösenord eller API-nycklar till GitHub eller lägg dem i dina webbplatsfiler.
       </p>
     </section>
 
     <section id="writing-prompts">
-      <h2><span class="num" aria-hidden="true">6</span> Skriva prompts</h2>
+      <h2><span class="num" aria-hidden="true">5</span> Skriva prompts</h2>
       <p>
         AI:n fungerar bäst när du skriver som om du briefar en hjälpsam kollega: tydligt mål, tillräckligt med kontext och en begäran i taget.
       </p>
@@ -318,7 +229,7 @@
     </section>
 
     <section id="prompts">
-      <h2><span class="num" aria-hidden="true">7</span> Exempelprompts</h2>
+      <h2><span class="num" aria-hidden="true">6</span> Exempelprompts</h2>
       <p>
         Välj <strong>ett spår</strong> nedan. Kopiera varje prompt till OpenCode i ordning.
         Ersätt allt i <code>[hakparenteser]</code> med dina egna uppgifter innan du skickar.
@@ -487,7 +398,7 @@ Fixa bara det problemet i index.html. Visa mig exakt vilken CSS du ändrade.</pr
     </section>
 
     <section id="during">
-      <h2><span class="num" aria-hidden="true">8</span> Under workshopen</h2>
+      <h2><span class="num" aria-hidden="true">7</span> Under workshopen</h2>
 
       <div class="card">
         <p class="card-title">Så arbetar vi med AI</p>
@@ -502,17 +413,15 @@ Fixa bara det problemet i index.html. Visa mig exakt vilken CSS du ändrade.</pr
 
       <h3>Användbara OpenCode-kommandon</h3>
       <ul>
-        <li><strong>Settings → Providers</strong> — lägg till eller byt AI-leverantör (t.ex. Neuralwatt)</li>
-        <li><strong>Model picker</strong> (under chattrutan) — ska visa <strong>Kimi K2.6</strong> under Neuralwatt idag</li>
+        <li><strong>Model picker</strong> (under chattrutan) — byt modell eller bekräfta att du använder dagens gratismodell</li>
         <li><kbd>/init</kbd> — hjälp OpenCode att förstå ditt projekt (kör en gång per mapp)</li>
         <li><kbd>/undo</kbd> — ångra senaste ändringen</li>
       </ul>
 
       <h3>Om något går fel</h3>
       <ul>
-        <li><strong>Autentiseringsfel</strong> — öppna <strong>Settings → Providers → Neuralwatt</strong> och klistra in API-nyckeln igen</li>
-        <li><strong>Slut på kredit (Neuralwatt)</strong> — kontrollera ditt saldo i portalens instrumentpanel; testkrediten gäller i 30 dagar</li>
-        <li><strong>Modellen hittades inte</strong> — klicka på modellnamnet under chattrutan, sök <strong>Kimi K2.6</strong> under Neuralwatt och välj den i listan (skriv inte modell-ID manuellt)</li>
+        <li><strong>Ingen modell vald</strong> — klicka på modellnamnet under chattrutan och välj gratismodellen i listan</li>
+        <li><strong>Ombedd att logga in</strong> — följ OpenCodes anvisning; ett gratiskonto låser upp de inbyggda modellerna</li>
         <li>Fråga facilitatören — vi finns här för att hjälpa</li>
       </ul>
     </section>
@@ -523,8 +432,6 @@ Fixa bara det problemet i index.html. Visa mig exakt vilken CSS du ändrade.</pr
         <ul>
           <li><a href="https://opencode.ai/download">Ladda ner OpenCode</a></li>
           <li><a href="https://opencode.ai/docs">OpenCode-dokumentation</a></li>
-          <li><a href="https://portal.neuralwatt.com/auth/register">Neuralwatt — skapa konto</a></li>
-          <li><a href="https://portal.neuralwatt.com/docs/integrations/opencode">Neuralwatt × OpenCode-installation</a></li>
           <li><a href="https://github.com/signup">GitHub — registrera dig</a></li>
           <li><a href="https://vercel.com/signup">Vercel — registrera dig</a></li>
         </ul>
